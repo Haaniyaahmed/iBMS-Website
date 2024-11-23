@@ -3,87 +3,176 @@
 import React, { useState } from "react";
 import "./globals.css";
 import Image from "next/image";
-import ibiomed_logo from "../public/sample.png";
+import header from "../public/header_home.png";
 
 export default function HomePage() {
-  // State to manage the active tab
   const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
 
-  // Function to switch tabs
   const handleTabSwitch = (tab: "futureStudents" | "currentStudents") => {
     setActiveTab(tab);
   };
 
   return (
     <div className="container">
-      {/* Image Section */}
-      {/* <div>
-        <Image
-          src={ibiomed_logo}
-          layout="responsive"
-          width={300}
-          height={400}
-          placeholder="blur"
-          alt="ibiomed Logo"
-        />
-      </div> */}
+      {/* Header Image */}
+      <div className="header">
+        <Image src={header} alt="Header" layout="responsive" priority />
+      </div>
 
-      {/* Tab Buttons */}
-      <div className="tabs">
-        <button
-          onClick={() => handleTabSwitch("futureStudents")}
-          className={`tab ${activeTab === "futureStudents" ? "active" : ""}`}
-        >
-          FUTURE STUDENTS
-        </button>
-        <button
-          onClick={() => handleTabSwitch("currentStudents")}
-          className={`tab ${activeTab === "currentStudents" ? "active" : ""}`}
-        >
-          CURRENT STUDENTS
-        </button>
+      {/* Tabs */}
+      <div className="tabs-container">
+        <div className="tabs">
+          <button
+            onClick={() => handleTabSwitch("futureStudents")}
+            className={`tab ${activeTab === "futureStudents" ? "active" : ""}`}
+          >
+            <strong>FUTURE STUDENTS</strong>
+          </button>
+          <button
+            onClick={() => handleTabSwitch("currentStudents")}
+            className={`tab ${activeTab === "currentStudents" ? "active" : ""}`}
+          >
+            <strong style={{ fontFamily: "'Poppins', sans-serif" }}>CURRENT STUDENTS</strong>
+          </button>
+        </div>
       </div>
 
       {/* Tab Content */}
       <div className="tab-content">
-        {activeTab === "futureStudents" && <div>Content for Future Students</div>}
-        {activeTab === "currentStudents" && <div>Content for Current Students</div>}
+        {activeTab === "futureStudents" && (
+          <div className="content-container">
+            <div className="rect-container">
+              <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>MENTORSHIP</span>
+              </a>
+              <a href="https://www.instagram.com/macengww/?hl=en" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>WELCOME WEEK SCHEDULE</span>
+              </a>
+              <a href="https://www.eng.mcmaster.ca/ibiomed/ibehs-1/" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>RESOURCES</span>
+              </a>
+              <a href="https://example4.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>UPPER YEAR ADVICE</span>
+              </a>
+            </div>
+          </div>
+        )}
+        {activeTab === "currentStudents" && (
+          <div className="content-container">
+            <div className="rect-container">
+              <a href="https://example5.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>STREAM SELECTION</span>
+              </a>
+              <a href="https://example6.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>CO-OPS & RESEARCH</span>
+              </a>
+              <a href="https://www.instagram.com/macibiomed/p/CxbSaXGxEYD/?img_index=1" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>STUDY TIPS</span>
+              </a>
+              <a href="https://forms.gle/twivfnvbKHbbXBDE9" target="_blank" rel="noopener noreferrer" className="rectangle">
+                <div className="circle"></div>
+                <span>ACADEMIC CONCERNS</span>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
 
       <style jsx>{`
         .container {
-          width: 80%;
+          width: 100%;
           margin: 0 auto;
         }
+
+        .header {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+
+        .tabs-container {
+          width: 85%; 
+          margin: 0 auto; /* Center the tabs */
+        }
+
         .tabs {
           display: flex;
+          justify-content: space-between;
           margin-top: 20px;
         }
+
         .tab {
           flex: 1;
           padding: 10px;
           text-align: center;
           background: #f1f1f1;
-          border: 1px solid #ccc;
           cursor: pointer;
           color: black;
           transition: background-color 0.3s;
-          border-radius: 5px;
+          border-radius: 10px 10px 0 0;
         }
+
         .tab.active {
-          background: #7a003c;
-          color: black;
+          background: #C22D2A;
+          color: white;
         }
+
         .tab:hover {
           background: #ddd;
         }
-        .tab-content {
-          margin-top: 20px;
+
+        .content-container {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          background-color: #202020;
           padding: 20px;
-          border: 1px solid #ccc;
-          background-color: white;
-          color: black;
           border-radius: 5px;
+          width: 85%;
+          margin: 0 auto;
+          border-bottom: 5px solid #C22D2A;
+        }
+
+        .rect-container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          flex: 2;
+        }
+
+        .rectangle {
+          width: 100%;
+          height: 60px;
+          background: #C22D2A;
+          color: white;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 10px;
+          font-weight: bold;
+          border: none;
+          border-radius: 20px;
+          text-decoration: none;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .rectangle:hover {
+          transform: scale(1.02);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .circle {
+          width: 50px;
+          height: 50px;
+          background-color: white;
+          border: 3px solid #FFD700;
+          border-radius: 50%;
         }
       `}</style>
     </div>
