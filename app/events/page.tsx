@@ -102,12 +102,12 @@ export default async function Page() {
             </center>
           </h1>
         </div>
-        <p className={`${inter.variable} font-sans text-white font-bold text-xl pt-12`}>📌NEWEST</p>
+        <p className={`${inter.variable} font-sans text-white font-bold text-xl pt-12 ml-16 pb-3`}>📌NEWEST</p>
       <div className='flex flex-row justify-center'>
         <Carousel opts={{align: "center"}} className='flex flex-row rounded-t-lg max-w-5xl'>
         <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
-            {calendar?.map((event) => (
-              <CarouselItem className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3'>
+            {calendar?.map((event,index) => (
+              <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3'>
                 <div className='bg-white w-full h-56 rounded-lg'>
                   {event?.attachments?.[0]?.fileUrl ? 
                     <div className='w-full h-16 relative'>
@@ -179,6 +179,7 @@ export default async function Page() {
             style={{ border: 0 }}
             width="800"
             height="600"
+            className='rounded-lg'
           />
       </center>
       </main>
