@@ -49,13 +49,22 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+			"mac-light-red": "#C22D2A",
+			"mac-dark-red": "#AD2F2F",
+			"mac-pink": "#F2AAA9",
+			"mac-dark-yellow": "#FFD920",
+			"mac-light-yellow": "#F8EAA8",
+			"mac-grey": "#ECECEC"
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		  fontFamily: {
+			sans: ['var(--font-inter)']
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
