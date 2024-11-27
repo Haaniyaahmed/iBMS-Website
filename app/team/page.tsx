@@ -1,5 +1,5 @@
 import "../globals.css"
 
-export default async function Page() {
+export default function Page() {
   return <h1>Team page</h1>
 }

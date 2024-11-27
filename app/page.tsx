@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./globals.css";
 import Image from "next/image";
 import header from "../public/header_home.png";
+import Navbar from "./_components/Navbar";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
@@ -14,6 +15,7 @@ export default function HomePage() {
 
   return (
     <div className="container">
+      <Navbar />
       {/* Header Image */}
       <div className="header">
         <Image src={header} alt="Header" layout="responsive" priority />
