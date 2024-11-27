@@ -10,6 +10,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        red: "#C22D2A",
+      },
+      fontSize: {
+        base: "1.25rem"
       },
     },
   },

@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <h1>Shop</h1>
+      <h1>Student life</h1>
     </div>
   )
 }
