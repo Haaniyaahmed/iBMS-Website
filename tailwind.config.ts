@@ -13,7 +13,7 @@ export default {
         red: "#C22D2A",
       },
       fontSize: {
-        base: "1.25rem"
+        base: "1.00rem",
       },
     },
   },
