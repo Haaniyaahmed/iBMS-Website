@@ -23,3 +23,10 @@ body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Optional but recommended for consistency */
+}

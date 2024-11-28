@@ -1,5 +1,12 @@
 import "../globals.css"
 
-export default async function Page() {
-  return <h1>Events page</h1>
+import Navbar from "../_components/Navbar"
+
+export default function Page() {
+  return (
+    <div>
+      <Navbar />
+      <h1>Events page</h1>
+    </div>
+  )
 }
