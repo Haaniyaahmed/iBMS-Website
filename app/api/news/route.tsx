@@ -4,13 +4,20 @@ import * as csv from 'fast-csv';
 
 const NEWS_CSV_FILE_NAME = "news.csv"
 
+const readNewsAsPromise = () => {
+    return new Promise((resolve, reject) => {
+        const data: string[] = []
+        fs.createReadStream(path.resolve(process.cwd(), "app", "api", NEWS_CSV_FILE_NAME))
+            .pipe(csv.parse({ headers: true }))
+            .on('error', error => reject(error))
+            .on('data', row => data.push(row))
+            .on('end', () => resolve(data));
+    })
+}
+
 export async function GET(request: Request) {
-    fs.createReadStream(path.resolve(process.cwd(), "app", "api", NEWS_CSV_FILE_NAME))
-        .pipe(csv.parse({ headers: true }))
-        .on('error', error => console.error(error))
-        .on('data', row => console.log(row))
-        .on('end', (rowCount: number) => console.log(`Parsed ${rowCount} rows`));
-    return new Response(JSON.stringify({ message: 'Hello, App Router API!' }), {
+    const data = await readNewsAsPromise()
+    return new Response(JSON.stringify({data}), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
     });
