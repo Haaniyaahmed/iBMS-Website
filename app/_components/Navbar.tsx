@@ -24,19 +24,19 @@ export default function Navbar() {
             <h1 className="inline max-w-64 font-bold text-base">Official Student Society of McMaster iBioMed Program</h1>
           </div>
           <div className="text-base min-w-max flex justify-center gap-14 bg-red">
-            <Link href="/" className="text-base my-3 mx-6 nav-link">
+            <Link href="/" className="text-base my-3 mx-6 nav-link hover:text-neutral-300 ">
                 Home
             </Link>
-            <Link href="/team" className="nav-link text-base my-3 mx-6">
+            <Link href="/team" className="nav-link text-base my-3 mx-6 hover:text-neutral-300 ">
                 Team
             </Link>
-            <Link href="/studentlife" className="text-base my-3 mx-6 nav-link">
+            <Link href="/studentlife" className="text-base my-3 mx-6 nav-link hover:text-neutral-300 ">
                 Student Life
             </Link>
-            <Link href="/events" className="text-base my-3 mx-6 nav-link">
+            <Link href="/events" className="text-base my-3 mx-6 nav-link hover:text-neutral-300 ">
                 Events
             </Link>
-            <Link href="/contact" className="text-base my-3 mx-6 nav-link">
+            <Link href="/contact" className="text-base my-3 mx-6 nav-link hover:text-neutral-300 ">
                 Contact
             </Link>
           </div>

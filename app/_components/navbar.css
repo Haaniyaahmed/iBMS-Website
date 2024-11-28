@@ -1,5 +1,5 @@
-.nav-link:hover {
-  color: #0070f3; 
+.nav-link {
+    position: relative;
 }
 
 .nav-link::after {
@@ -7,12 +7,13 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0;
+  width: 0px;
   height: 2px; /* Thickness of underline */
-  background: #0070f3; /* Underline color matches text */
+  background: white; /* Underline color matches text */
   transition: width 0.3s ease-in-out;
 }
 
 .nav-link:hover::after {
   width: 100%; /* Full width on hover */
 }
+
