@@ -17,10 +17,13 @@ export default function HomePage() {
     <>
       <Navbar />
       <div className="container">
-        
-        {/* Header Image */}
-        <div className="header">
+        {/* Header Image with Text */}
+        <div className="header relative">
           <Image src={header} alt="Header" layout="responsive" priority />
+          <div className="header-text">
+  <span className="ibiomed-society ibiomed">IBIOMED</span>
+  <span className="ibiomed-society society">SOCIETY</span>
+</div>
         </div>
 
         {/* Tabs */}
@@ -98,6 +101,32 @@ export default function HomePage() {
           .header {
             width: 100%;
             margin-bottom: 40px;
+            position: relative;
+          }
+
+          .header-text {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Align to center */
+            text-align: center;
+          }
+
+          .ibiomed {
+            display: block;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 3rem; /* Adjust as needed */
+            line-height: 1.2;
+          }
+
+          .society {
+            display: block;
+            color: #FFD920;
+            font-family: 'Inter', sans-serif;
+            font-size: 3rem; /* Adjust as needed */
+            line-height: 1.2;
+            font-weight: bold;
           }
 
           .tabs-container {

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "fast-csv": "^5.0.2",
     "fs": "^0.0.1-security",
     "next": "^15.0.3",

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@400&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -23,10 +24,91 @@ body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Optional but recommended for consistency */
+.ibiomed-society {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
+
+.ibiomed {
+  font-size: 3rem; /* Adjust this size for IBIOMED */
+  color: white;
+  letter-spacing: 1rem; /* Adjust this value to increase spacing */
+}
+
+.society {
+  font-size: 6rem !important; /* Adjust this size for SOCIETY */
+  font-weight: bold;
+  color: #FFD920;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the text horizontally */
+  justify-content: center; /* Centers the text vertically if needed */
+  text-align: center; /* Ensures text alignment inside the flex container */
+  line-height: 1.2; /* Adjusts spacing between IBIOMED and SOCIETY */
+}
+
+
+.form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  background-color: #171717;
+}
+
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  color: black !important; /* Force the text color to be black */
+
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.status-message {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: green;
+}
+
