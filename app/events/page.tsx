@@ -47,8 +47,11 @@ interface CalendarData {
 }
 
 export default async function Page() {
-  let data = await fetch("http://localhost:3000/api/events");
-  let calendar: Events[] = await data.json();  
+  const calendarId = process.env.CALENDAR_ID;  // Replace with your public calendar ID
+  const apiKey = process.env.GOOGLE_API_KEY;
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
+  const data = await fetch(url);
+  const calendar: Events[] = (await data.json()).items;  
   // Extract and format the time (e.g., "5:00 AM")
     return (
       <main className='flex flex-col w-full h-screen bg-black overflow-y-auto'>
