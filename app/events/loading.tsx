@@ -8,6 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import Banner from '@/components/ui/banner'
 
 const inter = Inter({
     subsets: ['latin'],
@@ -18,24 +19,7 @@ export default function Loading() {
     // You can add any UI inside Loading, including a Skeleton.
     return (
         <main className='flex flex-col w-full h-screen bg-black overflow-y-auto'>
-        <div className='w-full h-1/2 relative flex-shrink-0'>
-          <Image src="/upcoming_events.png" 
-                 alt="Upcoming Events"
-                 fill
-                 style={{
-                  objectFit: 'cover'
-                }}
-          />
-          <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-          <h1 className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white ${inter.variable} font-sans text-4xl font-medium z-20`}>
-            UPCOMING
-            <center>
-              <h1 className={`${inter.variable} font-sans text-mac-dark-yellow text-4xl font-black`}>
-                EVENTS
-              </h1>
-            </center>
-          </h1>
-        </div>
+        <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
         <p className={`${inter.variable} font-sans text-white font-bold text-xl ml-16 pb-3`}>📌NEWEST</p>
         <div className='flex flex-row justify-center'>
             <Carousel opts={{align: "center"}} className='flex flex-row rounded-t-lg max-w-5xl'>

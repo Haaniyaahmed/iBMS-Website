@@ -1,0 +1,62 @@
+[
+    {
+        "image_path": "/merch/1.png",
+        "description": "Maroon Hoodie",
+        "price": 29.99
+    },
+    {
+        "image_path": "/merch/2.png",
+        "description": "Black T-Shirt",
+        "price": 14.99
+    },
+    {
+        "image_path": "/merch/3.png",
+        "description": "Blue Denim Jacket",
+        "price": 49.99
+    },
+    {
+        "image_path": "/merch/4.png",
+        "description": "White Baseball Cap",
+        "price": 19.99
+    },
+    {
+        "image_path": "/merch/5.png",
+        "description": "Gray Sweatpants",
+        "price": 24.99
+    },
+    {
+        "image_path": "/merch/6.png",
+        "description": "Red Beanie",
+        "price": 12.99
+    },
+    {
+        "image_path": "/merch/7.png",
+        "description": "Green Polo Shirt",
+        "price": 22.49
+    },
+    {
+        "image_path": "/merch/8.png",
+        "description": "Yellow Tank Top",
+        "price": 15.99
+    },
+    {
+        "image_path": "/merch/9.png",
+        "description": "Brown Leather Jacket",
+        "price": 89.99
+    },
+    {
+        "image_path": "/merch/10.png",
+        "description": "Navy Blue Shorts",
+        "price": 18.99
+    },
+    {
+        "image_path": "/merch/11.png",
+        "description": "Purple Scarf",
+        "price": 11.99
+    },
+    {
+        "image_path": "/merch/12.png",
+        "description": "Orange Tracksuit",
+        "price": 59.99
+    }
+]
