@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from 'react';
-import Navbar from '../_components/Navbar';
 import emailjs from "@emailjs/browser";
 import Image from "next/image";
 
@@ -44,7 +43,6 @@ export default function Contact() {
 
   return (
     <div className="contact-container">
-      <Navbar />
       <div className="container">
         {/* Header Image with Text */}
         <div className="header relative">

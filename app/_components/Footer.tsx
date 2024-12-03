@@ -1,0 +1,46 @@
+'use client'
+
+import "../globals.css"
+import "./navbar.css"
+
+import Image from "next/image"
+import Link from 'next/link';
+
+import logo from "../../public/ibiosocietylogo.png"
+
+export default function Footer() {
+  return (
+		<div className="min-w-max border-white">
+			{/* Top section - red background */}
+			<div className="bg-red text-white flex justify-evenly px-10 py-6 align-text-top">
+				<div className="flex space-x-12 align-top mr-11 pr-11 pb-10">
+					<Link href="/studentlife" className="text-sm nav-link hover:text-neutral-300 ">
+            HELPFUL LINKS
+          </Link>
+					<Link href="/contact" className="text-sm nav-link hover:text-neutral-300 ">
+            CONNECT
+          </Link>
+        </div>
+				<div className="ml-11 pl-11 pb-10">
+					<Link href="/admin" className="text-sm nav-link hover:text-neutral-300 ">
+            ADMIN
+          </Link>
+				</div>
+			</div>
+
+			{/* Bottom section - black background */}
+			<div className="relative flex items-center py-5 px-9 bg-black">
+				<Image 
+					src={logo}
+					width={40}
+					height={40}
+					layout="fixed"
+					alt="iBiomed Society logo"
+					className="mx-10"
+					priority
+				/>
+				<p className="text-sm text-white absolute bottom-1 left-1/2 transform -translate-x-1/2">@ 2023 McMaster iBioMed Society</p>
+			</div>
+		</div>
+  );
+}
