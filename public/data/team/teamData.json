@@ -1,0 +1,193 @@
+
+[
+	{
+		"id": 1,
+		"name": "John Doe",
+		"position": "President",
+		"image": "/data/team/images/john_doe.jpg",
+		"stream": "HESE",
+		"label": "Executives",
+		"desc": "John is the president of the team and oversees all operations.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "John Doe",
+		"position": "Co-President",
+		"image": "/data/team/images/john_doe.jpg",
+		"stream": "Software",
+		"label": "Executives",
+		"desc": "John is the president of the team and oversees all operations.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Jamie Doe",
+		"position": "Co-President",
+		"image": "/data/team/images/john_doe.jpg",
+		"stream": "Software",
+		"label": "Executives",
+		"desc": "Jamie is the president of the team and oversees all operations.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Jane Doe",
+		"position": "VP Finance",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Mechatronics",
+		"label": "Vice Presidents",
+		"desc": "Jane is the vice president of the team and oversees all operations.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 5,
+		"name": "Jane Doe",
+		"position": "VP Marketing",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Materials",
+		"label": "Vice Presidents",
+		"desc": "Jane is the vice president of the team and oversees all operations.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 6,
+		"name": "Jane Doe",
+		"position": "VP Operations",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Software",
+		"label": "Vice Presidents",
+		"desc": "Jane is the vice president of the team and oversees all operations.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 7,
+		"name": "Jane Doe",
+		"position": "Chem Representative",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Chem",
+		"label": "Stream Representatives",
+		"desc": "Jane is the representative of chemical and biomedical engineering",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 8,
+		"name": "Jane Doe",
+		"position": "Software Representative",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Software",
+		"label": "Stream Representatives",
+		"desc": "Jane is the representative of software and biomedical engineering",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 9,
+		"name": "Jane Doe",
+		"position": "Materials Representative",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Materials",
+		"label": "Stream Representatives",
+		"desc": "Jane is the representative of materials and biomedical engineering",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	},
+	{
+		"id": 10,
+		"name": "Jane Doe",
+		"position": "Mechanical Representative",
+		"image": "/data/team/images/jane_doe.jpg",
+		"stream": "Mechanical",
+		"label": "Stream Representatives",
+		"desc": "Jane is the representative of mechanical and biomedical engineering",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com"
+			}
+		]
+	}
+]

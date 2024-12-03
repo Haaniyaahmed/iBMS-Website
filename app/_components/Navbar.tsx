@@ -10,7 +10,7 @@ import logo from "../../public/ibiosocietylogo.png"
 
 export default function Navbar() {
   return (
-      (<div className="min-w-max border-white bg-black">
+      <div className="min-w-max border-white bg-black">
           <div className="flex items-center py-5 px-9">
             <Image 
                 src={logo}
@@ -21,7 +21,7 @@ export default function Navbar() {
                 className="mx-10"
                 priority
             />
-            <h1 className="inline max-w-64 font-bold text-base">Official Student Society of McMaster iBioMed Program</h1>
+            <h1 className="inline max-w-64 font-bold text-base text-white">Official Student Society of McMaster iBioMed Program</h1>
           </div>
           <div className="text-base min-w-max flex justify-center gap-14 bg-red">
             <Link href="/" className="text-base my-3 mx-6 nav-link hover:text-neutral-300 ">
@@ -45,6 +45,6 @@ export default function Navbar() {
             
             `}
           </style>
-      </div>)
+      </div>
   );
 }
