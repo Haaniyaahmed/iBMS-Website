@@ -9,6 +9,9 @@ import Link from 'next/link';
 import logo from "../../public/ibiosocietylogo.png"
 
 export default function Footer() {
+
+	const currentYear = new Date().getFullYear();
+
   return (
 		<div className="min-w-max border-white">
 			{/* Top section - red background */}
@@ -39,7 +42,9 @@ export default function Footer() {
 					className="mx-10"
 					priority
 				/>
-				<p className="text-sm text-white absolute bottom-1 left-1/2 transform -translate-x-1/2">@ 2023 McMaster iBioMed Society</p>
+				<p className="text-sm sm:text-xs md:text-sm text-white absolute bottom-2 left-1/2 transform -translate-x-1/2">
+					@ {currentYear} McMaster iBioMed Society
+				</p>
 			</div>
 		</div>
   );
