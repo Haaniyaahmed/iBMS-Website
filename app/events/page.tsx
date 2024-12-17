@@ -56,30 +56,31 @@ export default async function Page() {
     return (
       <main className='flex flex-col w-full h-screen bg-black overflow-y-auto'>
         <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
-        <p className={`${inter.variable} font-sans text-white font-bold text-xl pt-12 ml-16 pb-3`}>📌NEWEST</p>
-      <div className='flex flex-row justify-center'>
-        <Carousel opts={{align: "center"}} className='flex flex-row rounded-t-lg max-w-5xl'>
-        <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
-            {calendar?.map((event,index) => (
-              <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3'>
-                <EventBox event={event}/>
-              </CarouselItem>
-            
-          ))}
-          </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-        </Carousel>
-      </div>
-      <center className='mt-6'>
-        <iframe
-            src="https://calendar.google.com/calendar/embed?src=37a82d11d86eab4bd30fa00588d06123cfc682511f709dc9fe3c12da9d9a681e%40group.calendar.google.com&ctz=America%2FToronto"
-            style={{ border: 0 }}
-            width="800"
-            height="600"
-            className='rounded-lg'
-          />
-      </center>
+        
+        <div className='flex flex-row justify-center'>
+          <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg max-w-5xl'>
+            <p className={`${inter.variable} font-sans text-white font-bold text-xl pt-12 ml-10 pb-3`}>📌NEWEST</p>
+            <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
+              {calendar?.map((event,index) => (
+                <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3'>
+                  <EventBox event={event}/>
+                </CarouselItem>
+              
+            ))}
+            </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+          </Carousel>
+        </div>
+        <center className='mt-6'>
+          <div className='max-w-5xl w-full pl-10'>
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=37a82d11d86eab4bd30fa00588d06123cfc682511f709dc9fe3c12da9d9a681e%40group.calendar.google.com&ctz=America%2FToronto"
+              style={{ border: 0, width: '100%', height: '600px' }}
+              className='rounded-lg'
+            />
+          </div>
+        </center>
       </main>
     )
   }
