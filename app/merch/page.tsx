@@ -11,7 +11,6 @@ import {
     CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card"
 import {
     Dialog,
@@ -69,7 +68,7 @@ export default function Page() {
                         />
                         </CardHeader>
                         <CardContent>
-                        <CardDescription className="text-base mt-2">{item.description}</CardDescription>
+                        <CardDescription className={`${inter.variable} text-base mt-2`}>{item.description}</CardDescription>
                         </CardContent>
                         <CardFooter className="text-lg font-semibold text-gray-800">
                         ${item.price.toFixed(2)}
@@ -79,7 +78,7 @@ export default function Page() {
                 ))}
                 <DialogContent className="h-screen">
                     <DialogHeader>
-                        <DialogTitle>{selectedItem ? selectedItem.description : "item"}</DialogTitle>
+                        <DialogTitle className={`${inter.variable}`}>{selectedItem ? selectedItem.description : "item"}</DialogTitle>
                     </DialogHeader>
                     <Lens hovering={hovering} setHovering={setHovering}>
                     <Image
@@ -92,7 +91,7 @@ export default function Page() {
                         />
                     </Lens>
                     <DialogFooter className="flex justify-start">
-                        <DialogDescription className="text-lg">{selectedItem ? "$" + selectedItem.price : ""}</DialogDescription>
+                        <DialogDescription className={`${inter.variable} text-lg`}>{selectedItem ? "$" + selectedItem.price : ""}</DialogDescription>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

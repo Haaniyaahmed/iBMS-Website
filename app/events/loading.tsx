@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Skeleton } from "@/components/ui/skeleton"
 import { Inter } from 'next/font/google'
 import {
