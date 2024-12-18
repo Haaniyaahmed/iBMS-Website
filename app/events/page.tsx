@@ -1,13 +1,6 @@
-import { Inter } from 'next/font/google' 
 import type { Metadata } from 'next'
 import Banner from '@/components/ui/banner'
 import SlideShow from './slideshow'
-
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
 
 interface Events {
     "created" : Date;

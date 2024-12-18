@@ -40,7 +40,6 @@ interface MobileProps {
 
 const Mobile: React.FC<MobileProps> = ({items}) => {
     const [selectedItem, setSelectedItem] = useState<MerchItem | null>(null);
-    const [hovering, setHovering] = useState(false);
     return (
         <div className="grid grid-cols-1 gap-6 bg-black px-11 pt-16">
             <Drawer>
