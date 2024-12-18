@@ -70,7 +70,7 @@ const formatDate = (date: Date | null): string => {
 }
 const EventBox : React.FC<event> = ({event}) => {
     return (
-        <div className='bg-white w-full h-72 sm:h-56 rounded-lg'>
+        <div className='bg-white w-full h-80 sm:h-56 rounded-lg'>
             {event?.attachments?.[0]?.fileUrl ? 
             <div className='w-full h-16 relative'>
                 <Image src={event.attachments[0].fileUrl}
