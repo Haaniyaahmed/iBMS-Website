@@ -13,7 +13,7 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({imagePath,title_top,title_bottom}) => {
     return(
-        <div className='w-full h-1/2 relative flex-shrink-0'>
+        <div className='w-full h-1/4 sm:h-1/2 relative flex-shrink-0'>
             <Image src={imagePath} 
                     alt={`${title_top + " " + title_bottom}`}
                     fill

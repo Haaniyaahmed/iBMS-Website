@@ -70,7 +70,7 @@ const formatDate = (date: Date | null): string => {
 }
 const EventBox : React.FC<event> = ({event}) => {
     return (
-        <div className='bg-white w-full h-56 rounded-lg'>
+        <div className='bg-white w-full h-72 sm:h-56 rounded-lg'>
             {event?.attachments?.[0]?.fileUrl ? 
             <div className='w-full h-16 relative'>
                 <Image src={event.attachments[0].fileUrl}
@@ -82,7 +82,7 @@ const EventBox : React.FC<event> = ({event}) => {
                     className='rounded-t-lg'
                 />
                 <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-                {event?.summary && <h1 className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white ${inter.variable} font-sans text-4xl font-medium z-20`}>{event.summary}</h1>}
+                {event?.summary && <h1 className={`absolute top-1/2 sm:left-1/2 transform -translate-y-1/2 text-white sm:-translate-x-1/2 ${inter.variable} font-sans text-4xl font-medium z-20`}>{event.summary}</h1>}
             </div>
             :
             <div className='w-full h-16 relative'>
@@ -95,7 +95,7 @@ const EventBox : React.FC<event> = ({event}) => {
                     className='rounded-t-lg'
                 />
                 <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-                {event?.summary && <h1 className={`absolute top-2/3 left-1/4 transform -translate-x-1/2 -translate-y-2/3 text-white ${inter.variable} font-sans text-4xl font-medium z-20`}>{event.summary}</h1>}
+                {event?.summary && <h1 className={`absolute top-2/3 sm:left-1/4 transform sm:-translate-x-1/2 -translate-y-2/3 text-white ${inter.variable} font-sans text-4xl font-medium z-20`}>{event.summary}</h1>}
             </div>
             }
             {event?.start?.dateTime && event?.end?.dateTime ?
