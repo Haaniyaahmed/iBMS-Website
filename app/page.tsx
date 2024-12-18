@@ -1,101 +1,214 @@
+"use client";
+
+import React, { useState } from "react";
+import "./globals.css";
 import Image from "next/image";
+import header from "../public/header_home.png";
+import Navbar from "./_components/Navbar";
 
-export default function Home() {
+export default function HomePage() {
+  const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
+
+  const handleTabSwitch = (tab: "futureStudents" | "currentStudents") => {
+    setActiveTab(tab);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Navbar />
+      <div className="container">
+        {/* Header Image with Text */}
+        <div className="header relative">
+          <Image src={header} alt="Header" layout="responsive" priority />
+          <div className="header-text">
+  <span className="ibiomed-society ibiomed">IBIOMED</span>
+  <span className="ibiomed-society society">SOCIETY</span>
+</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Tabs */}
+        <div className="tabs-container">
+          <div className="tabs">
+            <button
+              onClick={() => handleTabSwitch("futureStudents")}
+              className={`tab ${activeTab === "futureStudents" ? "active" : ""}`}
+            >
+              <strong>FUTURE STUDENTS</strong>
+            </button>
+            <button
+              onClick={() => handleTabSwitch("currentStudents")}
+              className={`tab ${activeTab === "currentStudents" ? "active" : ""}`}
+            >
+              <strong style={{ fontFamily: "'Poppins', sans-serif" }}>CURRENT STUDENTS</strong>
+            </button>
+          </div>
+        </div>
+
+        {/* Tab Content */}
+        <div className="tab-content">
+          {activeTab === "futureStudents" && (
+            <div className="content-container">
+              <div className="rect-container">
+                <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>MENTORSHIP</span>
+                </a>
+                <a href="https://www.instagram.com/macengww/?hl=en" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>WELCOME WEEK SCHEDULE</span>
+                </a>
+                <a href="https://www.eng.mcmaster.ca/ibiomed/ibehs-1/" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>RESOURCES</span>
+                </a>
+                <a href="https://example4.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>UPPER YEAR ADVICE</span>
+                </a>
+              </div>
+            </div>
+          )}
+          {activeTab === "currentStudents" && (
+            <div className="content-container">
+              <div className="rect-container">
+                <a href="https://example5.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>STREAM SELECTION</span>
+                </a>
+                <a href="https://example6.com" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>CO-OPS & RESEARCH</span>
+                </a>
+                <a href="https://www.instagram.com/macibiomed/p/CxbSaXGxEYD/?img_index=1" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>STUDY TIPS</span>
+                </a>
+                <a href="https://forms.gle/twivfnvbKHbbXBDE9" target="_blank" rel="noopener noreferrer" className="rectangle">
+                  <div className="circle"></div>
+                  <span>ACADEMIC CONCERNS</span>
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <style jsx>{`
+          .container {
+            width: 100%;
+            margin: 0 auto;
+          }
+
+          .header {
+            width: 100%;
+            margin-bottom: 40px;
+            position: relative;
+          }
+
+          .header-text {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Align to center */
+            text-align: center;
+          }
+
+          .ibiomed {
+            display: block;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 3rem; /* Adjust as needed */
+            line-height: 1.2;
+          }
+
+          .society {
+            display: block;
+            color: #FFD920;
+            font-family: 'Inter', sans-serif;
+            font-size: 3rem; /* Adjust as needed */
+            line-height: 1.2;
+            font-weight: bold;
+          }
+
+          .tabs-container {
+            width: 85%; 
+            margin: 0 auto; /* Center the tabs */
+          }
+
+          .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+          }
+
+          .tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: #f1f1f1;
+            cursor: pointer;
+            color: black;
+            transition: background-color 0.3s;
+            border-radius: 10px 10px 0 0;
+          }
+
+          .tab.active {
+            background: #C22D2A;
+            color: white;
+          }
+
+          .tab:hover {
+            background: #ddd;
+          }
+
+          .content-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            background-color: #202020;
+            padding: 20px;
+            border-radius: 5px;
+            width: 85%;
+            margin: 0 auto;
+            border-bottom: 5px solid #C22D2A;
+          }
+
+          .rect-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 2;
+          }
+
+          .rectangle {
+            width: 100%;
+            height: 60px;
+            background: #C22D2A;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+          }
+
+          .rectangle:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+
+          .circle {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 3px solid #FFD700;
+            border-radius: 50%;
+          }
+        `}</style>
+      </div>
+    </>
   );
 }
