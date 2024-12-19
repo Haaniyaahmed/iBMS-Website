@@ -49,7 +49,7 @@ export default async function Page() {
       <Nav/>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
       <SlideShow listOfEvents={calendar}/>
-      <center className='mt-6'>
+      <center className='mt-6 pb-10'>
         <div className='max-w-5xl w-full pl-3 sm:pl-9'>
           <iframe
             src="https://calendar.google.com/calendar/embed?src=37a82d11d86eab4bd30fa00588d06123cfc682511f709dc9fe3c12da9d9a681e%40group.calendar.google.com&ctz=America%2FToronto"
