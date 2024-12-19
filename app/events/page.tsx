@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Banner from '@/components/ui/banner'
 import SlideShow from './slideshow'
+import Nav from '@/components/ui/navbar'
+import Footer from '@/components/ui/Footer'
 
 interface Events {
     "created" : Date;
@@ -41,7 +43,10 @@ export default async function Page() {
   const data = await fetch(url);
   const calendar: Events[] = (await data.json()).items;  
   return (
-    <main className='flex flex-col w-full h-screen bg-black overflow-y-auto'>
+    <main className='flex flex-col w-full h-screen bg-black overflow-y-auto' style={{
+      backgroundImage: "url('/elipses.png')", 
+    }}>
+      <Nav/>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
       <SlideShow listOfEvents={calendar}/>
       <center className='mt-6'>
@@ -53,6 +58,7 @@ export default async function Page() {
           />
         </div>
       </center>
+      <Footer/>
     </main>
   )
 }

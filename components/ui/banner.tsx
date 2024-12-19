@@ -1,9 +1,4 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-})
 
 interface BannerProps {
     imagePath : string;
@@ -22,10 +17,10 @@ const Banner: React.FC<BannerProps> = ({imagePath,title_top,title_bottom}) => {
                 }}
             />
             <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-            <h1 className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white ${inter.variable} font-sans text-4xl font-medium z-20`}>
+            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-sans text-4xl font-medium z-20">
             {title_top}
             <center>
-                <h1 className={`${inter.variable} font-sans text-mac-dark-yellow text-4xl font-black`}>
+                <h1 className="font-sans text-mac-dark-yellow text-4xl font-black">
                 {title_bottom}
                 </h1>
             </center>

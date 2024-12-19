@@ -17,7 +17,7 @@ export default function Interactivity(){
 
     useEffect(() => {
         // Fetch the JSON file from the public folder
-        fetch('/merch.json')
+        fetch('/data/merch/merch.json')
         .then((response) => response.json())
         .then((data: MerchItem[]) => setInventory(data))
         .catch((error) => console.error('Error fetching JSON:', error));

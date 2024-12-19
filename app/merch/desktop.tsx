@@ -2,7 +2,6 @@
 import React from 'react';
 import { useState } from 'react'
 import Image from 'next/image'
-import { Inter } from 'next/font/google' 
 import {
     Card,
     CardContent,
@@ -21,11 +20,6 @@ import {
 } from "@/components/ui/dialog"
 import { Lens } from "@/components/ui/lens"
 
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-})
-
 interface MerchItem {
     image_path: string;
     description: string;
@@ -40,7 +34,9 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
     const [selectedItem, setSelectedItem] = useState<MerchItem | null>(null);
     const [hovering, setHovering] = useState(false);
     return (
-        <div className="grid grid-cols-1 gap-4 bg-black px-5 pt-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 bg-black px-5 pt-8 pb-10 md:grid-cols-2 lg:grid-cols-4" style={{
+            backgroundImage: "url('/elipses.png')", 
+          }}>
             <Dialog>
                 {items.map((item, index) => (
                     <DialogTrigger asChild key={index}>
@@ -48,7 +44,7 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                         <CardHeader className="p-0">
                         <center>
                         <Image
-                            src={item.image_path}
+                            src={"/data/merch/images"+item.image_path}
                             alt={item.description}
                             width={250}
                             height={250}
@@ -57,9 +53,9 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                         </center>
                         </CardHeader>
                         <CardContent>
-                        <CardDescription className={`${inter.variable} text-base mt-2`}>{item.description}</CardDescription>
+                        <CardDescription className="text-base mt-2">{item.description}</CardDescription>
                         </CardContent>
-                        <CardFooter className={`${inter.variable} text-lg font-semibold text-gray-800`}>
+                        <CardFooter className={`  text-lg font-semibold text-gray-800`}>
                         ${item.price.toFixed(2)}
                         </CardFooter>
                     </Card>
@@ -67,11 +63,11 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                 ))}
                 <DialogContent className="h-screen">
                     <DialogHeader>
-                        <DialogTitle className={`${inter.variable}`}>{selectedItem ? selectedItem.description : "item"}</DialogTitle>
+                        <DialogTitle>{selectedItem ? selectedItem.description : "item"}</DialogTitle>
                     </DialogHeader>
                     <Lens hovering={hovering} setHovering={setHovering}>
                     <Image
-                            src={selectedItem ? selectedItem.image_path : "/merch/10.png"}
+                            src={selectedItem ? "/data/merch/images"+selectedItem.image_path : "/data/merch/images/10.png"}
                             alt={selectedItem ? selectedItem.description : "hi"}
                             width={250}
                             height={250}
@@ -80,7 +76,7 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                         />
                     </Lens>
                     <DialogFooter className="flex justify-start">
-                        <DialogDescription className={`${inter.variable} text-lg text-black`}>{selectedItem ? "$" + selectedItem.price : ""}</DialogDescription>
+                        <DialogDescription className="text-lg text-black">{selectedItem ? "$" + selectedItem.price : ""}</DialogDescription>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

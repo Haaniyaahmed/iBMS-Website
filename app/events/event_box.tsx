@@ -1,10 +1,5 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { Clock, MapPin, CalendarRange } from 'lucide-react'
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-})
 interface Events {
     "created" : Date;
     "updated" : Date;
@@ -82,7 +77,7 @@ const EventBox : React.FC<event> = ({event}) => {
                     className='rounded-t-lg'
                 />
                 <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-                {event?.summary && <h1 className={`absolute top-1/2 sm:left-1/2 transform -translate-y-1/2 text-white sm:-translate-x-1/2 ${inter.variable} font-sans text-4xl font-medium z-20`}>{event.summary}</h1>}
+                {event?.summary && <h1 className="absolute top-1/2 sm:left-1/2 transform -translate-y-1/2 text-white sm:-translate-x-1/2 font-sans text-4xl font-medium z-20">{event.summary}</h1>}
             </div>
             :
             <div className='w-full h-16 relative'>
@@ -95,35 +90,35 @@ const EventBox : React.FC<event> = ({event}) => {
                     className='rounded-t-lg'
                 />
                 <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-                {event?.summary && <h1 className={`absolute top-2/3 sm:left-1/4 transform sm:-translate-x-1/2 -translate-y-2/3 text-white ${inter.variable} font-sans text-4xl font-medium z-20`}>{event.summary}</h1>}
+                {event?.summary && <h1 className="absolute top-2/3 sm:left-1/4 transform sm:-translate-x-1/2 -translate-y-2/3 text-white font-sans text-4xl font-medium z-20">{event.summary}</h1>}
             </div>
             }
             {event?.start?.dateTime && event?.end?.dateTime ?
             <div className='flex flex-row pt-3'>
                 <Clock className='ml-5' fill='gray-300' color='#FFFFFF' size={32}/>
                 <div className='flex flex-col'>
-                <p className={`${inter.variable} font-sans px-5`}>{`${formatDateTime(event.start.dateTime)[0]} - ${formatDateTime(event.end.dateTime)[0]}`}</p>
-                <p className={`${inter.variable} font-sans text-xs px-5`}>{`${formatDateTime(event.start.dateTime)[1]} - ${formatDateTime(event.end.dateTime)[1]}`}</p>
+                <p className="font-sans px-5">{`${formatDateTime(event.start.dateTime)[0]} - ${formatDateTime(event.end.dateTime)[0]}`}</p>
+                <p className="font-sans text-xs px-5">{`${formatDateTime(event.start.dateTime)[1]} - ${formatDateTime(event.end.dateTime)[1]}`}</p>
                 </div>
             </div>
             :
             <div className='flex flex-row pt-3'>
                 <Clock className='ml-5' fill='gray-300' color='#FFFFFF' size={32}/>
                 <div className='flex flex-col'>
-                <p className={`${inter.variable} font-sans px-5`}>{`${formatDate(event.start.date)} - ${formatDate(event.end.date)}`}</p>
+                <p className="font-sans px-5">{`${formatDate(event.start.date)} - ${formatDate(event.end.date)}`}</p>
                 </div>
             </div>
             }
             {event?.location && 
             <div className='flex flex-row pt-3'>
                 <MapPin className='ml-5' fill='gray-300' color='#FFFFFF' size={32}/>
-                <p className={`${inter.variable} font-sans px-5`}>{event.location}</p>
+                <p className="font-sans px-5">{event.location}</p>
             </div>
             }
             {event?.description && 
             <div className='flex flex-row pt-3'>
                 <CalendarRange className='ml-5'  size={32}/>
-                <p className={`${inter.variable} font-sans px-5`}>{event.description}</p>
+                <p className="font-sans px-5">{event.description}</p>
             </div>
             }
         </div>

@@ -1,5 +1,4 @@
 import { Skeleton } from "@/components/ui/skeleton"
-import { Inter } from 'next/font/google'
 import {
     Carousel,
     CarouselContent,
@@ -9,17 +8,12 @@ import {
 } from "@/components/ui/carousel"
 import Banner from '@/components/ui/banner'
 
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-})
-
 export default function Loading() {
     // You can add any UI inside Loading, including a Skeleton.
     return (
         <main className='flex flex-col w-full h-screen bg-black overflow-y-auto'>
         <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
-        <p className={`${inter.variable} font-sans text-white font-bold text-xl ml-16 pb-3`}>📌NEWEST</p>
+        <p className="font-sans text-white font-bold text-xl ml-16 pb-3">📌NEWEST</p>
         <div className='flex flex-row justify-center'>
             <Carousel opts={{align: "center"}} className='flex flex-row rounded-t-lg max-w-5xl'>
             <CarouselContent className='rounded-lg -ml-1 w-full'>
