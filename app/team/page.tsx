@@ -7,22 +7,6 @@ export const metadata: Metadata = {
     title: 'Team',
 }
 
-interface Social {
-    platform: string;
-    url: string;
-}
-
-interface TeamMember {
-    id: number;
-    name: string;
-    position: string;
-    image: string;
-    stream: string;
-    label: string;
-    desc: string;
-    socials: Social[];
-}
-
 export default function Page() {
   return (
     <div
