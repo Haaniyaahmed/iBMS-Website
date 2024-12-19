@@ -13,8 +13,9 @@ const Banner: React.FC<BannerProps> = ({imagePath,title_top,title_bottom}) => {
                     alt={`${title_top + " " + title_bottom}`}
                     fill
                     style={{
-                    objectFit: 'cover'
-                }}
+                        objectFit: 'cover'
+                    }}
+                    priority
             />
             <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
             <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-sans text-4xl font-medium z-20">
