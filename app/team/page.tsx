@@ -59,7 +59,7 @@ export default function TeamPage() {
       </div>
 
        {/* Category Buttons */}
-      <div className="flex w-full justify-center space-x-4 mt-6 mb-8">
+      <div className="flex flex-wrap gap-y-6 w-full justify-center space-x-4 mt-6 mb-8">
         {categories.map((category) => (
           <button
             key={category}
