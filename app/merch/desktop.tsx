@@ -40,7 +40,7 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
             <Dialog>
                 {items.map((item, index) => (
                     <DialogTrigger asChild key={index}>
-                    <Card key={index} className="border hover:scale-110 hover:border-yellow-400 hover:border-4" onClick={() => setSelectedItem(item)}>
+                    <Card key={index} className="border cursor-pointer hover:scale-110 hover:border-yellow-400 hover:border-4" onClick={() => setSelectedItem(item)}>
                         <CardHeader className="p-0">
                         <center>
                         <Image

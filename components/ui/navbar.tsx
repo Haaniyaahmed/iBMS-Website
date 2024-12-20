@@ -12,11 +12,11 @@ import {
 } from "@nextui-org/navbar";
 import Link from "next/link";
 import Image from "next/image";
-
+import { usePathname } from 'next/navigation';
 
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+    const currentPath = usePathname();
     const menuItems = {
       "Home":"/",
       "Team":"/team",
@@ -40,10 +40,17 @@ export default function Nav() {
   
         <NavbarContent className="hidden sm:flex gap-12" justify="center">
             {Object.entries(menuItems).map(([label, link]) => (
-                <NavbarItem key={label} className="w-full" onClick={() => window.location.href = link}>
-                    <Link href={link} className="w-full text-white">
+              link === currentPath ?
+                <NavbarItem key={label} className="w-full" onClick={() => window.location.href = link} isActive>
+                    <Link href={link} className="w-full text-green-400" aria-current="page">
                         {label}
                     </Link>
+                </NavbarItem>
+              :
+                <NavbarItem key={label} className="w-full transition-color ease-in-out duration-200 hover:border-b-4 hover:border-b-white" onClick={() => window.location.href = link}>
+                  <Link href={link} className="w-full text-white">
+                      {label}
+                  </Link>
                 </NavbarItem>
             ))}
         </NavbarContent>
