@@ -55,6 +55,7 @@ export default async function Page() {
             src="https://calendar.google.com/calendar/embed?src=37a82d11d86eab4bd30fa00588d06123cfc682511f709dc9fe3c12da9d9a681e%40group.calendar.google.com&ctz=America%2FToronto"
             style={{ border: 0, width: '99%', height: '600px' }}
             className='rounded-lg'
+            loading="lazy"
           />
         </div>
       </center>
