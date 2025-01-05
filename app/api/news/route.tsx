@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as csv from 'fast-csv';
-import { NextRequest } from 'next/server';
 
 const NEWS_CSV_FILE_NAME = "news.csv"
 const NEWS_FILE_PATH = path.join(process.cwd(), 'app/api/news.csv');
@@ -27,7 +26,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
     const {title, article_link, photo_link} = await request.json()
-    const fileLine = `${title}, ${article_link}, ${photo_link}`
+    const fileLine = `${title},${article_link},${photo_link}`
 
     await fs.appendFile(NEWS_FILE_PATH, fileLine + "\n", err => {
         if (err) throw err;
