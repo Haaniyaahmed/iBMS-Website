@@ -29,7 +29,11 @@ export async function POST(request: Request) {
     const fileLine = `${title},${article_link},${photo_link}`
 
     await fs.appendFile(NEWS_FILE_PATH, "\n" + fileLine, err => {
-        if (err) throw err;
+        if (err) {
+            return new Response(JSON.stringify({error: err}), {
+                status: 500
+            })
+        };
         console.log('The new row was appended')
     });
 
@@ -39,3 +43,28 @@ export async function POST(request: Request) {
     });
 }
 
+export async function DELETE(request: Request) {
+    const {title} = await request.json() // this is the title of news articles to remove
+    
+    const data = await readNewsAsPromise()
+    const articleExists = data.some(line => line.title == title)
+    if (!articleExists) {
+        return new Response(JSON.stringify({message: "That title does not corrispond to a news article!"}))
+    }
+
+    const filteredJson = data.filter(line => line.title != title) // keep articles with different title 
+
+    const csvData = filteredJson.map(newsJson => `${newsJson.title},${newsJson.article_link},${newsJson.photo_link}`)
+    fs.writeFile(NEWS_FILE_PATH, "title,article_link,photo_link" + "\n" + csvData.join(""), err => {
+        if (err) {
+            return new Response(JSON.stringify({error: err}), {
+                status: 500
+            })
+        };
+        console.log('The row was deleted!')
+    })
+
+    return new Response(JSON.stringify(filteredJson), {
+        status: 200
+    })
+}

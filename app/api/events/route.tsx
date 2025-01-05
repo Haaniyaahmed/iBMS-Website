@@ -33,8 +33,33 @@ export async function POST(request: Request) {
         console.log('The new row was appended')
     });
 
-    return new Response(JSON.stringify({ message: 'Article appended successfully!!' }), {
+    return new Response(JSON.stringify({ message: 'Event appended successfully!!' }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
     });
+}
+
+export async function DELETE(request: Request) {
+    const {event_name} = await request.json() // this is the event name to remove
+
+    const data = await readEventsAsPromise()
+    const eventExists = data.some(line => line.event_name == event_name)
+    if (!eventExists) {
+        return new Response(JSON.stringify({message: "That title does not corrispond to an event!"}))
+    }
+
+    const filteredJson = data.filter(line => line.event_name != event_name) // keep events different name
+    const csvData = filteredJson.map(eventJson => `${eventJson.event_name},${eventJson.description},${eventJson.date},${eventJson.time},${eventJson.location}`)
+    fs.writeFile(EVENTS_FILE_PATH, "title,article_link,photo_link" + "\n" + csvData.join(""), err => {
+        if (err) {
+            return new Response(JSON.stringify({error: err}), {
+                status: 500
+            })
+        };
+        console.log('The row was deleted!')
+    })
+
+    return new Response(JSON.stringify(filteredJson), {
+        status: 200
+    })
 }
