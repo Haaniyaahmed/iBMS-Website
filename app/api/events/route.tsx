@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     const {event_name, description, date, time, location} = await request.json()
     const fileLine = `${event_name},${description},${date},${time},${location}`
 
-    await fs.appendFile(EVENTS_FILE_PATH, fileLine + "\n", err => {
+    await fs.appendFile(EVENTS_FILE_PATH,"\n" + fileLine, err => {
         if (err) throw err;
         console.log('The new row was appended')
     });
