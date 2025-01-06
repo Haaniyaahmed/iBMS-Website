@@ -93,6 +93,6 @@ Successful response will return all events, after deletions have occured.
 Unsuccessful response body (json):
 ```json
 {
-    "message" : "That title does not corrispond to an event!"
+    "message" : "That event name does not corrispond to an event!"
 }
 ```
