@@ -20,7 +20,7 @@ Example request body (json):
 }
 ```
 
-Successful POST response (json): 
+Successful POST response (json):
 ```json
 {
     "message": "Article appended successfully!!"
