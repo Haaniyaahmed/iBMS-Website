@@ -15,7 +15,7 @@ export default function Footer() {
   return (
 		<div className="min-w-max border-white">
 			{/* Top section - red background */}
-			<div className="bg-red text-white flex justify-evenly px-10 py-6 align-text-top">
+			<div className="bg-mac-dark-red text-white flex justify-evenly px-10 py-6 align-text-top">
 				<div className="flex space-x-12 align-top mr-11 pr-11 pb-10">
 					<Link href="/studentlife" className="text-sm nav-link hover:text-neutral-300 ">
             HELPFUL LINKS
