@@ -3,6 +3,7 @@ import Banner from '@/components/ui/banner'
 import SlideShow from './slideshow'
 import Nav from '@/components/ui/navbar'
 import Footer from '@/components/ui/Footer'
+import Header from '@/components/ui/header'
 
 interface Events {
     "created" : Date;
@@ -46,6 +47,7 @@ export default async function Page() {
     <main className='flex flex-col w-full h-screen bg-black overflow-y-auto' style={{
       backgroundImage: "url('/elipses.png')", 
     }}>
+      <Header/>
       <Nav/>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
       <SlideShow listOfEvents={calendar}/>

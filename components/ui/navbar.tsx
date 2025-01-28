@@ -42,7 +42,7 @@ export default function Nav() {
             {Object.entries(menuItems).map(([label, link]) => (
               link === currentPath ?
                 <NavbarItem key={label} className="w-full" onClick={() => window.location.href = link} isActive>
-                    <Link href={link} className="w-full text-green-400" aria-current="page">
+                    <Link href={link} className="w-full text-white" aria-current="page">
                         {label}
                     </Link>
                 </NavbarItem>

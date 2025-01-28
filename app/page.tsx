@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Footer from "@/components/ui/Footer"
 import Nav from "@/components/ui/navbar";
+import Banner from "@/components/ui/banner";
+import MyTable from "@/components/ui/mytable";
+import Header from "@/components/ui/header";
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,15 +13,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className='flex flex-col w-full h-screen bg-white'>
+        <Header/>
         <Nav/>
-        <div className="relative flex justify-center items-center h-1/4 sm:h-1/2">
-          <Image
-            src="/hero_title.png"
-            alt="title"
-            fill
-            priority
-          />
-        </div>
+        <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY"/>
+        <div className="bg-yellow-500 py-2 mb-6"/>
+        <MyTable/>
+        <div className="bg-white py-2"/>
         <Footer/>
     </main>
   );
