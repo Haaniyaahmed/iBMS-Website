@@ -10,11 +10,32 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@nextui-org/navbar": "^2.2.5",
+    "@nextui-org/system": "^2.4.4",
+    "@nextui-org/theme": "^2.4.3",
+    "@radix-ui/react-dialog": "^1.1.4",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "emailjs-com": "^3.2.0",
+    "embla-carousel-react": "^8.5.1",
     "fast-csv": "^5.0.2",
+    "framer-motion": "^11.15.0",
     "fs": "^0.0.1-security",
-    "next": "^15.0.3",
+    "ibms": "file:",
+    "lucide-react": "^0.460.0",
+    "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.2"
+  },
+  "overrides": {
+    "framer-motion": {
+      "react": "19.0.0-rc-66855b96-20241106",
+      "react-dom": "19.0.0-rc-66855b96-20241106"
+    }
   },
   "devDependencies": {
     "@types/node": "^20",

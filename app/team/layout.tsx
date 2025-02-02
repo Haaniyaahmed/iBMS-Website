@@ -9,7 +9,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // Do not render <html> or <body> here, let Next.js handle it
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {children}

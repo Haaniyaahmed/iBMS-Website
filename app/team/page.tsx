@@ -33,15 +33,19 @@ export default function TeamPage() {
       </div>
 
        {/* Category Buttons */}
-      <div className="flex justify-center space-x-4 mt-6 mb-8">
+      <div className="flex flex-wrap justify-center gap-2 mt-6 mb-8 md:gap-4">
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 rounded-full font-semibold transition duration-200 ${
-              activeCategory === category
-                ? "bg-yellow-400 text-black"
-                : "bg-gray-700 hover:bg-gray-600"
-            }`}
+            className={`rounded-full font-semibold transition duration-200
+              text-sm px-3 py-1  // Default for mobile (smallest size)
+              md:text-base md:px-4 md:py-2  // Medium size for tablets
+              lg:text-lg lg:px-5 lg:py-3  // Large size for desktops
+              ${
+                activeCategory === category
+                  ? "bg-yellow-400 text-black"
+                  : "bg-gray-700 text-white hover:bg-gray-600"
+              }`}
             onClick={() => setActiveCategory(category)}
           >
             {category}

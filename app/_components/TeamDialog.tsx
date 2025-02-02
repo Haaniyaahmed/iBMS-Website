@@ -1,4 +1,5 @@
 import React from "react";
+
 import { TeamMember } from "./TeamCard";
 
 interface DialogCardProps {
@@ -14,40 +15,40 @@ const DialogCard = ({ member, closeDialog } : DialogCardProps) => {
       onClick={closeDialog}
     >
       <div
-        className="bg-white border-4 border-yellow-200 rounded-3xl p-6 flex 
-				w-4/5 h-[400px] pl-11 pr-11"
+        className="bg-white border-4 border-yellow-200 rounded-3xl p-6 flex flex-col w-9/12 max-w-lg md:max-w-3xl lg:w-4/5 
+                  md:flex-row md:h-[400px] md:pl-11 md:pr-11"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Left Section: Image */}
-        <div className="flex-shrink-0 w-[255px] h-[255px] mt-10 mb-10 ml-11 mr-10">
+        {/* Image Section - Stays on Top for Mobile, Moves Left for Larger Screens */}
+        <div className="w-full h-[250px] flex justify-center md:w-[255px] md:h-[255px] md:mt-10 md:mb-10 md:ml-11 md:mr-10">
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover rounded-lg md:w-[255px] md:h-[255px]"
           />
         </div>
 
-        {/* Right Section: Content */}
-        <div className="ml-6 flex flex-col justify-middle w-full mt-10 mb-10 mr-11">
-          {/* Name and Tags */}
+        {/* Content Section - Below Image for Mobile, Right Side for Larger Screens */}
+        <div className="mt-5 md:mt-10 flex flex-col text-center md:text-left md:ml-6 md:w-full md:mr-11">
+          {/* Name & Tags */}
           <div>
-            <h2 className="text-5xl text-black font-bold">
+            <h2 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
               {member.name.toUpperCase()}
             </h2>
 
-            <div className="flex space-x-6 mt-2">
-                <button className="px-4 py-2 bg-purple-400 text-red-800 font-semibold rounded-full shadow-md">
-                    {member.stream}
-                </button>
-                <button className="px-4 py-2 bg-green-400 text-red-800 font-semibold rounded-full shadow-md">
-                    {member.position}
-                </button>
+            <div className="flex flex-wrap justify-center md:justify-start space-x-2 mt-3">
+              <button className="px-3 py-1 text-sm md:text-base bg-purple-400 text-red-800 font-semibold rounded-full shadow-md">
+                {member.stream}
+              </button>
+              <button className="px-3 py-1 text-sm md:text-base bg-green-400 text-red-800 font-semibold rounded-full shadow-md">
+                {member.position}
+              </button>
             </div>
           </div>
 
-          {/* Socials and Description */}
+          {/* Socials & Description */}
           <div className="mt-5 mb-5">
-            <div className="flex space-x-4">
+            <div className="flex justify-center md:justify-start space-x-4">
               {member.socials.map((social, index) => (
                 <a
                   key={index}
@@ -58,13 +59,13 @@ const DialogCard = ({ member, closeDialog } : DialogCardProps) => {
                   <img
                     src={`/socials/${social.platform}_logo.jpg`}
                     alt={`${social.platform} logo`}
-                    className="w-8 h-8 object-contain hover:opacity-75 transition duration-200"
+                    className="w-6 h-6 md:w-8 md:h-8 object-contain hover:opacity-75 transition duration-200"
                   />
                 </a>
               ))}
             </div>
 
-            <p className="text-gray-700 mt-4">{member.desc}</p>
+            <p className="text-gray-700 mt-4 text-sm md:text-base">{member.desc}</p>
           </div>
         </div>
       </div>
