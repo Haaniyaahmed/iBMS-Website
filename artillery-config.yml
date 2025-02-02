@@ -1,0 +1,15 @@
+config:
+  target: "http://localhost:3001"  # Change if deployed
+  phases:
+    - duration: 60  # Run for 60 seconds
+      arrivalRate: 10  # 10 new virtual users per second
+  defaults:
+    headers:
+      User-Agent: "ArtilleryLoadTest"
+
+scenarios:
+  - flow:
+      - get:
+          url: "/"  # Load the homepage
+      - get:
+          url: "/team"
