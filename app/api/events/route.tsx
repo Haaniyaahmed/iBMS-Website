@@ -16,7 +16,7 @@ const readEventsAsPromise = (): Promise<Record<string, string>[]> => {
     })
 }
 
-export async function GET(request: Request) {
+export async function GET() {
     const data = await readEventsAsPromise()
     return new Response(JSON.stringify({ data }), {
         status: 200,
