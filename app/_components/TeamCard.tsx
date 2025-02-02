@@ -1,6 +1,6 @@
 'use client'
-
 import { useState } from 'react';
+
 import TeamDialog from './TeamDialog';
 
 export interface TeamMember {
@@ -8,7 +8,7 @@ export interface TeamMember {
   name: string;
   position: string;
   image: string;
-	stream: string;
+  stream: string;
 	label: string;
   desc: string;
 	socials: { platform: string; url: string }[];
