@@ -20,11 +20,11 @@ const DialogCard = ({ member, closeDialog } : DialogCardProps) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image Section - Stays on Top for Mobile, Moves Left for Larger Screens */}
-        <div className="w-full h-[250px] flex justify-center md:w-[255px] md:h-[255px] md:mt-10 md:mb-10 md:ml-11 md:mr-10">
+        <div className="w-full h-[250px] flex justify-center md:w-[300px] md:h-[255px] lg:w-[450px] md:mt-10 md:mb-10 md:ml-11 md:mr-10">
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover rounded-lg md:w-[255px] md:h-[255px]"
+            className="w-full h-full object-cover rounded-lg md:w-[300px] md:h-[255px] lg:w-[450px]"
           />
         </div>
 
