@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import "./globals.css";
 import Image from "next/image";
 import header from "../public/header_home.png";
+import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
@@ -14,6 +16,7 @@ export default function HomePage() {
 
   return (
     <>
+      <Navbar/>
       <div className="container">
         {/* TODO Header Image with Text */}
         <div className="header relative">
@@ -89,6 +92,7 @@ export default function HomePage() {
             </div>
           )}
         </div>
+        <Footer/>
 
         <style jsx>{`
           .container {

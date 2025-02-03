@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Banner from '../_components/banner'
 import SlideShow from './slideshow'
 
@@ -30,10 +29,6 @@ interface Events {
 
 }
 
-export const metadata: Metadata = {
-  title: 'Events',
-}
-
 export default async function Page() {
   const calendarId = process.env.CALENDAR_ID;  // Replace with your public calendar ID
   const apiKey = process.env.GOOGLE_API_KEY;
@@ -41,9 +36,7 @@ export default async function Page() {
   const data = await fetch(url);
   const calendar: Events[] = (await data.json()).items;  
   return (
-    <main className='flex flex-col w-full h-screen bg-black overflow-y-auto' style={{
-      backgroundImage: "url('/elipses.png')", 
-    }}>
+    <>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
       <SlideShow listOfEvents={calendar}/>
       <center className='mt-6 pb-10'>
@@ -56,6 +49,6 @@ export default async function Page() {
           />
         </div>
       </center>
-    </main>
+    </>
   )
 }
