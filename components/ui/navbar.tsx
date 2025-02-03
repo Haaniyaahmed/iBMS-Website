@@ -54,7 +54,7 @@ export default function Nav() {
                 </NavbarItem>
             ))}
         </NavbarContent>
-        <NavbarMenu className="lg:mt-44 bg-mac-dark-red gap-8">
+        <NavbarMenu className="lg:mt-44 mt-20 bg-mac-dark-red gap-8">
             {Object.entries(menuItems).map(([label, link]) => (
                 <NavbarMenuItem key={label}>
                 <Link href={link} className="w-full text-white">
