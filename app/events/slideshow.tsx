@@ -76,8 +76,8 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                         
                     ))}
                     </CarouselContent>
-                    <CarouselPrevious/>
-                    <CarouselNext/>
+                    <CarouselPrevious className="bg-white"/>
+                    <CarouselNext className="bg-white"/>
                     </Carousel>
                 </div>
             )
