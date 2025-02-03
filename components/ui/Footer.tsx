@@ -11,7 +11,7 @@ export default function Footer() {
 		<div className="w-full border-white">
 			{/* Top section - red background */}
 			<div className="bg-mac-dark-red text-white flex justify-evenly py-6 align-text-top">
-				<div className="flex space-x-12 align-top mr-11 pr-11 pb-10">
+				<div className="flex space-x-12 align-top mr-11 pr-11 pb-10 mx-2">
 					<Link href="/studentlife" className="text-sm nav-link hover:text-neutral-300 ">
                         HELPFUL LINKS
                     </Link>
@@ -27,7 +27,7 @@ export default function Footer() {
                 </div>
 
 			{/* Bottom section - black background */}
-			<div className="relative flex items-center py-5 px-9 bg-black">
+			<div className="relative flex items-center py-5 px-9 space-x-2 bg-black">
 				<Image 
 					src={"/ibiosocietylogo.png"}
 					width={40}
