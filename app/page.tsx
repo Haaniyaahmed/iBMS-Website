@@ -1,7 +1,7 @@
 import Footer from "@/components/ui/Footer"
 import Nav from "@/components/ui/navbar";
 import Banner from "@/components/ui/banner";
-import MyTable from "@/components/ui/mytable";
+import Table from "@/components/ui/table";
 import Header from "@/components/ui/header";
 import type { Metadata } from 'next'
 
@@ -16,7 +16,7 @@ export default function Home() {
         <Nav/>
         <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY"/>
         <div className="bg-yellow-500 py-2 mb-6"/>
-        <MyTable/>
+        <Table/>
         <div className="bg-white py-2"/>
         <Footer/>
     </main>
