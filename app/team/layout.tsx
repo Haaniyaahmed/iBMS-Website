@@ -13,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     // Do not render <html> or <body> here, let Next.js handle it
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" style={{
+      backgroundImage: "url('/elipses.png')", 
+    }}>
       <div className="flex-grow">
         <Navbar/>
         {children}
