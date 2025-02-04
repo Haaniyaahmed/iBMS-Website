@@ -41,7 +41,7 @@ const Mobile: React.FC<MobileProps> = ({items}) => {
             <Drawer>
                 {items.map((item, index) => (
                     <DrawerTrigger asChild key={index}>
-                    <Card key={index} className="border hover:scale-110 hover:border-yellow-400 hover:border-4" onClick={() => setSelectedItem(item)}>
+                    <Card key={index} className="bg-white border hover:scale-110 hover:border-yellow-400 hover:border-4" onClick={() => setSelectedItem(item)}>
                         <CardHeader className="p-0">
                         <center>
                             <Image
@@ -62,7 +62,7 @@ const Mobile: React.FC<MobileProps> = ({items}) => {
                     </Card>
                     </DrawerTrigger>
                 ))}
-                <DrawerContent>
+                <DrawerContent className='bg-white'>
                     <DrawerHeader>
                         <DrawerTitle>{selectedItem ? selectedItem.description : "item"}</DrawerTitle>
                     </DrawerHeader>
