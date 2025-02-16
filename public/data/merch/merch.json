@@ -1,62 +1,38 @@
 [
     {
         "image_path": "/1.png",
-        "description": "Maroon Hoodie",
-        "price": 29.99
+        "title": "Embroidered Crewneck",
+        "description": "The OG™️",
+        "price": 42
     },
     {
         "image_path": "/2.png",
-        "description": "Black T-Shirt",
-        "price": 14.99
+        "title": "Embroidered Quarterzip",
+        "description": "The Society Crest",
+        "price": 45
     },
     {
         "image_path": "/3.png",
-        "description": "Blue Denim Jacket",
-        "price": 49.99
+        "title": "Embroidered Bucket Hat",
+        "description": "The Society Crest",
+        "price": 18
     },
     {
         "image_path": "/4.png",
-        "description": "White Baseball Cap",
-        "price": 19.99
+        "title": "Embroidered Crewneck 1",
+        "description": "A Retrospective Take",
+        "price": 42
     },
     {
         "image_path": "/5.png",
-        "description": "Gray Sweatpants",
-        "price": 24.99
+        "title": "Embroidered Crewneck 2",
+        "description": "A Retrospective Take",
+        "price": 42
     },
     {
         "image_path": "/6.png",
-        "description": "Red Beanie",
-        "price": 12.99
-    },
-    {
-        "image_path": "/7.png",
-        "description": "Green Polo Shirt",
-        "price": 22.49
-    },
-    {
-        "image_path": "/8.png",
-        "description": "Yellow Tank Top",
-        "price": 15.99
-    },
-    {
-        "image_path": "/9.png",
-        "description": "Brown Leather Jacket",
-        "price": 89.99
-    },
-    {
-        "image_path": "/10.png",
-        "description": "Navy Blue Shorts",
-        "price": 18.99
-    },
-    {
-        "image_path": "/11.png",
-        "description": "Purple Scarf",
-        "price": 11.99
-    },
-    {
-        "image_path": "/12.png",
-        "description": "Orange Tracksuit",
-        "price": 59.99
+        "title": "Embroidered Crewneck 3",
+        "description": "Inner Workings",
+        "price": 42
     }
 ]

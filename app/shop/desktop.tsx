@@ -22,6 +22,7 @@ import { Lens } from "../_components/lens"
 
 interface MerchItem {
     image_path: string;
+    title: string;
     description: string;
     price: number;
 }
@@ -48,12 +49,12 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                             alt={item.description}
                             width={250}
                             height={250}
-                            className="object-cover w-fit h-48 mt-4 rounded-t-lg lg:w-full"
+                            className="object-contain w-fit h-48 mt-4 rounded-t-lg lg:w-full"
                         />
                         </center>
                         </CardHeader>
                         <CardContent>
-                        <CardDescription className="text-base mt-2">{item.description}</CardDescription>
+                        <CardDescription className="text-base mt-2">{item.title}</CardDescription>
                         </CardContent>
                         <CardFooter className={`  text-lg font-semibold text-gray-800`}>
                         ${item.price.toFixed(2)}
@@ -63,7 +64,8 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                 ))}
                 <DialogContent className="h-screen bg-white">
                     <DialogHeader>
-                        <DialogTitle>{selectedItem ? selectedItem.description : "item"}</DialogTitle>
+                        <DialogTitle>{selectedItem ? selectedItem.title : "item"}</DialogTitle>
+                        <DialogDescription>{selectedItem ? selectedItem.description : "item"}</DialogDescription>
                     </DialogHeader>
                     <Lens hovering={hovering} setHovering={setHovering}>
                     <Image
@@ -71,7 +73,7 @@ const Desktop: React.FC<DesktopProp> = ({items}) => {
                             alt={selectedItem ? selectedItem.description : "hi"}
                             width={250}
                             height={250}
-                            className="object-cover w-full h-screen mt-4 rounded-t-lg"
+                            className="object-cover w-full h-fit mt-4 rounded-t-lg"
                             unoptimized
                         />
                     </Lens>

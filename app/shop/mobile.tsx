@@ -24,6 +24,7 @@ import { useState } from 'react';
 
 interface MerchItem {
     image_path: string;
+    title: string;
     description: string;
     price: number;
 }
@@ -54,7 +55,7 @@ const Mobile: React.FC<MobileProps> = ({items}) => {
                         </center>
                         </CardHeader>
                         <CardContent>
-                        <CardDescription className="text-base mt-2">{item.description}</CardDescription>
+                        <CardDescription className="text-base mt-2">{item.title}</CardDescription>
                         </CardContent>
                         <CardFooter className="text-lg font-semibold text-gray-800">
                         ${item.price.toFixed(2)}
@@ -64,14 +65,15 @@ const Mobile: React.FC<MobileProps> = ({items}) => {
                 ))}
                 <DrawerContent className='bg-white'>
                     <DrawerHeader>
-                        <DrawerTitle>{selectedItem ? selectedItem.description : "item"}</DrawerTitle>
+                        <DrawerTitle>{selectedItem ? selectedItem.title : "item"}</DrawerTitle>
+                        <DrawerDescription>{selectedItem ? selectedItem.description : "item"}</DrawerDescription>
                     </DrawerHeader>
                     <Image
                             src={selectedItem ? "/data/merch/images"+selectedItem.image_path : "/data/merch/images/10.png"}
                             alt={selectedItem ? selectedItem.description : "hi"}
                             width={250}
                             height={250}
-                            className="object-cover w-full h-[60vh] mt-4 rounded-t-lg"
+                            className="object-contain w-full h-[60vh] mt-4 rounded-t-lg"
                             unoptimized
                         />
                     <DrawerFooter>
