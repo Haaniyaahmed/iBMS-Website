@@ -97,7 +97,7 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                             <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
                         </DrawerHeader>
                         <center className="max-h-96 overflow-y-auto">
-                            <p dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
+                            <p className="text-wrap" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
                         </center>
                         <DrawerFooter>
                             <DrawerClose asChild>
