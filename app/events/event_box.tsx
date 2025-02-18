@@ -78,7 +78,10 @@ const getTextSize = (text: string) => {
 
 const stripHtml = (html: string) => {
     // Remove HTML tags
-    const plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
+    let plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
+
+    // Remove continuous stretches of 3 or more dashes
+    plainText = plainText.replace(/-{3,}/g, "");
   
     // Truncate if longer than 30 characters
     return plainText.length <= 30 ? plainText : plainText.substring(0, 27) + "...";
