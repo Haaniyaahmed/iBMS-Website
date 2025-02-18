@@ -66,7 +66,7 @@ interface SlideShowProps {
 
 const removeHtmlBlob = (html: string) => {
     // Match <html-blob> tags, using non-greedy matching without the 's' flag
-    return html.replace(/<html-blob[^>]*>([\s\S]*?)<\/html-blob>/g, '');
+    return html.replace(/<html-blob>+<\/html-blob>/g, "");
 };
 
 const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
@@ -97,8 +97,8 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                             <DrawerTitle>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
                             <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
                         </DrawerHeader>
-                        <center>
-                            <p className='overflow-y-auto' dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
+                        <center className="overflow-y-auto">
+                            <p dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
                         </center>
                         <DrawerFooter>
                             <DrawerClose asChild>
@@ -128,12 +128,12 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                             <CarouselNext className="bg-white"/>
                             </Carousel>
                         </div>
-                        <DialogContent className="h-fit bg-white">
+                        <DialogContent className="h-fit overflow-y-auto bg-white">
                             <DialogHeader>
                                 <DialogTitle>{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
                                 <DialogDescription>{selectedItem ? selectedItem.location : "Location"}</DialogDescription>
                             </DialogHeader>
-                            <p className='overflow-y-auto' dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
+                            <p dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
                         </DialogContent>
                 </Dialog>
             )

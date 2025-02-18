@@ -95,7 +95,7 @@ const EventBox : React.FC<event> = ({event}) => {
         <div className='bg-white w-full h-80 sm:h-56 rounded-lg'>
             {event?.attachments?.[0]?.fileUrl ? 
             <div className='w-full h-16 relative'>
-                <Image src={event.attachments[0].fileUrl}
+                <Image src="/default_event.png"
                     alt="Event"
                     fill
                     style={{
