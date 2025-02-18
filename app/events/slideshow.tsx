@@ -64,6 +64,11 @@ interface SlideShowProps {
     listOfEvents : Events[];
 }
 
+const removeHtmlBlob = (html: string) => {
+    // Match <html-blob> tags, using non-greedy matching without the 's' flag
+    return html.replace(/<html-blob[^>]*>([\s\S]*?)<\/html-blob>/g, '');
+};
+
 const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
     const isMobile = useMediaQuery("(max-width: 640px)");
     const [selectedItem, setSelectedItem] = useState<Events | null>(null);
@@ -93,7 +98,7 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                             <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
                         </DrawerHeader>
                         <center>
-                            <p dangerouslySetInnerHTML={{ __html: filterXSS(selectedItem?.description || "") }}/>
+                            <p className='overflow-y-auto' dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
                         </center>
                         <DrawerFooter>
                             <DrawerClose asChild>
@@ -128,7 +133,7 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                                 <DialogTitle>{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
                                 <DialogDescription>{selectedItem ? selectedItem.location : "Location"}</DialogDescription>
                             </DialogHeader>
-                            <p dangerouslySetInnerHTML={{ __html: filterXSS(selectedItem?.description || "") }} ></p>
+                            <p className='overflow-y-auto' dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
                         </DialogContent>
                 </Dialog>
             )
