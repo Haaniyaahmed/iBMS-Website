@@ -77,7 +77,7 @@ const getTextSize = (text: string) => {
 };
 
 const stripLocation = (location: string) => {
-    return location.length <= 50 ? location : location.substring(0, 47) + "...";
+    return location.length <= 26 ? location : location.substring(0, 23) + "...";
 }
 const stripHtml = (html: string) => {
     // Remove HTML tags
