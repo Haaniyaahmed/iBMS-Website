@@ -80,8 +80,8 @@ const stripHtml = (html: string) => {
     // Remove HTML tags
     let plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
 
-    // Remove continuous stretches of 3 or more dashes
-    plainText = plainText.replace(/-{3,}/g, "");
+    // Remove continuous stretches of 3 or more underscores
+    plainText = plainText.replace(/_{3,}/g, "");
   
     // Truncate if longer than 30 characters
     return plainText.length <= 30 ? plainText : plainText.substring(0, 27) + "...";
