@@ -76,6 +76,9 @@ const getTextSize = (text: string) => {
     return "text-sm text-wrap"; 
 };
 
+const stripLocation = (location: string) => {
+    return location.length <= 50 ? location : location.substring(0, 47) + "...";
+}
 const stripHtml = (html: string) => {
     // Remove HTML tags
     let plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
@@ -136,7 +139,7 @@ const EventBox : React.FC<event> = ({event}) => {
             {event?.location && 
             <div className='flex flex-row pt-3'>
                 <MapPin className='ml-5' fill='gray-300' color='#FFFFFF' size={32}/>
-                <p className="font-sans px-5">{event.location}</p>
+                <p className="font-sans px-5">{stripLocation(event.location)}</p>
             </div>
             }
             {event?.description && 
