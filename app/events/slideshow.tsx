@@ -96,7 +96,7 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                             <DrawerTitle>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
                             <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
                         </DrawerHeader>
-                        <center className="max-h-5/6 overflow-y-auto">
+                        <center className="max-h-96 overflow-y-auto">
                             <p dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
                         </center>
                         <DrawerFooter>
@@ -127,7 +127,7 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                             <CarouselNext className="bg-white"/>
                             </Carousel>
                         </div>
-                        <DialogContent className="max-h-5/6 h-fit overflow-y-auto bg-white">
+                        <DialogContent className="max-h-96 h-fit overflow-y-auto bg-white">
                             <DialogHeader>
                                 <DialogTitle>{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
                                 <DialogDescription>{selectedItem ? selectedItem.location : "Location"}</DialogDescription>
