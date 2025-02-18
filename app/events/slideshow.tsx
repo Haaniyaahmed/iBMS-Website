@@ -6,9 +6,31 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../_components/carousel"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "../_components/dialog"  
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "../_components/drawer"
+import { Button } from "../_components/button"
 import EventBox from './event_box'
 import useMediaQuery from "@/hooks/useMediaQuery"
 import React from 'react'
+import { useState } from "react"
+import { filterXSS } from "xss";
+
 
 interface Events {
     "created" : Date;
@@ -44,42 +66,71 @@ interface SlideShowProps {
 
 const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
     const isMobile = useMediaQuery("(max-width: 640px)");
+    const [selectedItem, setSelectedItem] = useState<Events | null>(null);
     return (
         <>
         {
             isMobile ? 
             (
-                <div className='flex flex-row justify-center'>
-                    <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg w-full lg:max-w-5xl'>
-                    <p className="font-sans text-white font-bold text-xl pt-12 ml-3 pb-3">📌NEWEST</p>
-                    <CarouselContent key={1} className='rounded-lg -ml-7 w-full'>
-                        {listOfEvents?.map((event,index) => (
-                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3'>
-                            <EventBox event={event}/>
-                        </CarouselItem>
-                        
-                    ))}
-                    </CarouselContent>
-                    </Carousel>
-                </div>
+                <Drawer>
+                    <div className='flex flex-row justify-center'>
+                        <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg w-full lg:max-w-5xl'>
+                        <p className="font-sans text-white font-bold text-xl pt-12 ml-3 pb-3">📌NEWEST</p>
+                        <CarouselContent key={1} className='rounded-lg -ml-7 w-full'>
+                            {listOfEvents?.map((event,index) => (
+                                <DrawerTrigger asChild key={index}>
+                                    <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3' onClick={() => setSelectedItem(event)}>
+                                        <EventBox event={event}/>
+                                    </CarouselItem>
+                                </DrawerTrigger>
+                        ))}
+                        </CarouselContent>
+                        </Carousel>
+                    </div>
+                    <DrawerContent className='bg-white'>
+                        <DrawerHeader>
+                            <DrawerTitle>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
+                            <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
+                        </DrawerHeader>
+                        <center>
+                            <p dangerouslySetInnerHTML={{ __html: filterXSS(selectedItem?.description || "") }}/>
+                        </center>
+                        <DrawerFooter>
+                            <DrawerClose asChild>
+                                <Button>Close</Button>
+                            </DrawerClose>
+                        </DrawerFooter>
+                    </DrawerContent>
+                </Drawer>
             )
             :
             (
-                <div className='flex flex-row justify-center'>
-                    <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg w-full lg:max-w-5xl'>
-                    <p className="font-sans text-white font-bold text-xl pt-12 ml-10 pb-3">📌NEWEST</p>
-                    <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
-                        {listOfEvents?.map((event,index) => (
-                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3'>
-                            <EventBox event={event}/>
-                        </CarouselItem>
-                        
-                    ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="bg-white"/>
-                    <CarouselNext className="bg-white"/>
-                    </Carousel>
-                </div>
+                <Dialog>
+                        <div className='flex flex-row justify-center'>
+                            <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg w-full lg:max-w-5xl'>
+                            <p className="font-sans text-white font-bold text-xl pt-12 ml-10 pb-3">📌NEWEST</p>
+                            <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
+                                {listOfEvents?.map((event,index) => (
+                                    <DialogTrigger asChild key={index}>
+                                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3 cursor-pointer' onClick={() => setSelectedItem(event)}>
+                                            <EventBox event={event}/>
+                                        </CarouselItem>
+                                    </DialogTrigger>
+                                
+                            ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="bg-white"/>
+                            <CarouselNext className="bg-white"/>
+                            </Carousel>
+                        </div>
+                        <DialogContent className="h-fit bg-white">
+                            <DialogHeader>
+                                <DialogTitle>{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
+                                <DialogDescription>{selectedItem ? selectedItem.location : "Location"}</DialogDescription>
+                            </DialogHeader>
+                            <p dangerouslySetInnerHTML={{ __html: filterXSS(selectedItem?.description || "") }} ></p>
+                        </DialogContent>
+                </Dialog>
             )
         }
         </>
