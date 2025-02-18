@@ -63,6 +63,27 @@ const formatDate = (date: Date | null): string => {
       day: 'numeric',
 });
 }
+
+const getTextSize = (text: string) => {
+    const length = text.length;
+    if (length <= 10) return "text-5xl";
+    if (length <= 15) return "text-4xl";
+    if (length <= 17) return "text-3xl"; 
+    if (length <= 46) return "text-2xl text-wrap";
+    if (length <= 56) return "text-xl text-wrap";
+    if (length <= 60) return "text-lg text-wrap";
+    if (length <= 68) return "text-md text-wrap";
+    return "text-sm text-wrap"; 
+};
+
+const stripHtml = (html: string) => {
+    // Remove HTML tags
+    const plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
+  
+    // Truncate if longer than 30 characters
+    return plainText.length <= 30 ? plainText : plainText.substring(0, 27) + "...";
+  };
+
 const EventBox : React.FC<event> = ({event}) => {
     return (
         <div className='bg-white w-full h-80 sm:h-56 rounded-lg'>
@@ -77,7 +98,7 @@ const EventBox : React.FC<event> = ({event}) => {
                     className='rounded-t-lg'
                 />
                 <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-                {event?.summary && <h1 className="absolute top-1/2 sm:left-1/2 transform -translate-y-1/2 text-white sm:-translate-x-1/2 font-sans text-4xl font-medium z-20">{event.summary}</h1>}
+                {event?.summary && <p className={`absolute top-1/2 -translate-y-1/2 flex items-center left-3 inset-x-0 font-sans font-medium text-white ${getTextSize(event.summary)} overflow-hidden leading-tight z-20`}>{event.summary}</p>}
             </div>
             :
             <div className='w-full h-16 relative'>
@@ -90,7 +111,7 @@ const EventBox : React.FC<event> = ({event}) => {
                     className='rounded-t-lg'
                 />
                 <div className="absolute inset-0 bg-[#420806] opacity-60 pointer-events-none z-10"></div> {/* Overlay */}
-                {event?.summary && <h1 className="absolute top-2/3 sm:left-1/4 transform sm:-translate-x-1/2 -translate-y-2/3 text-white font-sans text-4xl font-medium z-20">{event.summary}</h1>}
+                {event?.summary && <p className={`absolute top-1/2 -translate-y-1/2 flex items-center left-3 inset-x-0 font-sans font-medium text-white ${getTextSize(event.summary)} overflow-hidden leading-tight z-20`}>{event.summary}</p>}
             </div>
             }
             {event?.start?.dateTime && event?.end?.dateTime ?
@@ -118,7 +139,7 @@ const EventBox : React.FC<event> = ({event}) => {
             {event?.description && 
             <div className='flex flex-row pt-3'>
                 <CalendarRange className='ml-5'  size={32}/>
-                <p className="font-sans px-5">{event.description}</p>
+                <p className="font-sans px-5 overflow-hidden text-ellipsis">{stripHtml(event.description)}</p>
             </div>
             }
         </div>
