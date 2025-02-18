@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Banner from '../_components/banner'
 import SlideShow from './slideshow'
 
@@ -30,10 +29,6 @@ interface Events {
 
 }
 
-export const metadata: Metadata = {
-  title: 'Events',
-}
-
 export default async function Page() {
   const calendarId = process.env.CALENDAR_ID;  // Replace with your public calendar ID
   const apiKey = process.env.GOOGLE_API_KEY;
@@ -41,21 +36,19 @@ export default async function Page() {
   const data = await fetch(url);
   const calendar: Events[] = (await data.json()).items;  
   return (
-    <main className='flex flex-col w-full h-screen bg-black overflow-y-auto' style={{
-      backgroundImage: "url('/elipses.png')", 
-    }}>
+    <>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
       <SlideShow listOfEvents={calendar}/>
       <center className='mt-6 pb-10'>
         <div className='max-w-5xl w-full pl-3 sm:pl-9'>
           <iframe
-            src="https://calendar.google.com/calendar/embed?src=37a82d11d86eab4bd30fa00588d06123cfc682511f709dc9fe3c12da9d9a681e%40group.calendar.google.com&ctz=America%2FToronto"
+            src="https://calendar.google.com/calendar/embed?src=vpexternal.ibiomed%40gmail.com&ctz=America%2FToronto"
             style={{ border: 0, width: '99%', height: '600px' }}
             className='rounded-lg'
             loading="lazy"
           />
         </div>
       </center>
-    </main>
+    </>
   )
 }

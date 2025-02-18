@@ -7,6 +7,7 @@ import Desktop from "./desktop"
 
 interface MerchItem {
     image_path: string;
+    title: string;
     description: string;
     price: number;
 }

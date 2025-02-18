@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import "./globals.css";
-import Image from "next/image";
-import header from "../public/header_home.png";
+import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
+import Banner from "./_components/banner";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
@@ -14,15 +15,11 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="container">
+      <Navbar/>
+      <div className="container flex flex-col w-full h-screen bg-white">
         {/* TODO Header Image with Text */}
-        <div className="header relative">
-          <Image src={header} alt="Header" layout="responsive" priority />
-          <div className="header-text">
-            <span className="ibiomed-society ibiomed">IBIOMED</span>
-            <span className="ibiomed-society society">SOCIETY</span>
-          </div>
-        </div>
+        <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY"/>
+        <div className="bg-yellow-500 py-2 mb-6"/>
 
         {/* Tabs */}
         <div className="tabs-container">
@@ -89,6 +86,8 @@ export default function HomePage() {
             </div>
           )}
         </div>
+        <div className="bg-white py-2"/>
+        <Footer/>
 
         <style jsx>{`
           .container {
