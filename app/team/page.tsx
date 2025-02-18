@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import "../globals.css"
 
-import teamData from '../../public/data/team/teamData.json'; // Import JSON
+import teamData from '../../public/data/team/teamData.json'; // Import JSON for now
 import TeamCard from '../_components/TeamCard';
 
 export default function TeamPage() {
