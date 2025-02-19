@@ -71,6 +71,7 @@ const removeHtmlBlob = (html: string) => {
 const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
     const isMobile = useMediaQuery("(max-width: 640px)");
     const [selectedItem, setSelectedItem] = useState<Events | null>(null);
+    const [open, setOpen] = useState(false);
     return (
         <>
         {
@@ -83,8 +84,8 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                         <CarouselContent key={1} className='rounded-lg -ml-7 w-full'>
                             {listOfEvents?.map((event,index) => (
                                 <DrawerTrigger asChild key={index}>
-                                    <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3' onClick={() => setSelectedItem(event)}>
-                                        <EventBox event={event}/>
+                                    <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3'>
+                                        <EventBox event={event} setSelectedItem={setSelectedItem} setOpen={setOpen}/>
                                     </CarouselItem>
                                 </DrawerTrigger>
                         ))}
@@ -109,18 +110,15 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
             )
             :
             (
-                <Dialog>
+                <Dialog open={open} onOpenChange={setOpen}>
                         <div className='flex flex-row justify-center'>
                             <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg w-full lg:max-w-5xl'>
                             <p className="font-sans text-white font-bold text-xl pt-12 ml-10 pb-3">📌NEWEST</p>
                             <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
                                 {listOfEvents?.map((event,index) => (
-                                    <DialogTrigger asChild key={index}>
-                                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3 cursor-pointer' onClick={() => setSelectedItem(event)}>
-                                            <EventBox event={event}/>
+                                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3 cursor-pointer'>
+                                            <EventBox event={event} setSelectedItem={setSelectedItem} setOpen={setOpen}/>
                                         </CarouselItem>
-                                    </DialogTrigger>
-                                
                             ))}
                             </CarouselContent>
                             <CarouselPrevious className="bg-white"/>
