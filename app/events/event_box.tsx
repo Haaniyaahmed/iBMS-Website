@@ -155,7 +155,7 @@ const EventBox : React.FC<event> = ({event,setSelectedItem,setOpen}) => {
                 <p className="font-sans px-5">{stripLocation(event.location)}</p>
             </div>
             }
-            <div className='flex flex-row pt-3 justify-center mt-auto mb-5'>
+            <div className='flex flex-row pt-3 justify-center mt-auto mb-2'>
                 <Button className='bg-mac-dark-red' onClick={() => {setSelectedItem(event); setOpen(true)}}>
                     <CircleHelp /> Click for More Info
                 </Button>
