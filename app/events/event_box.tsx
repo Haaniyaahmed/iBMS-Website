@@ -87,7 +87,7 @@ const stripLocation = (location: string) => {
 
     return location.length <= 26 ? location : location.substring(0, 23) + "...";
 };
-
+/*
 const stripHtml = (html: string) => {
     // Remove HTML tags
     let plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
@@ -98,7 +98,7 @@ const stripHtml = (html: string) => {
     // Truncate if longer than 30 characters
     return plainText.length <= 30 ? plainText : plainText.substring(0, 27) + "...";
   };
-
+*/
 const EventBox : React.FC<event> = ({event}) => {
     return (
         <div className='bg-white w-full h-80 sm:h-56 rounded-lg text-black'>
@@ -152,9 +152,8 @@ const EventBox : React.FC<event> = ({event}) => {
             </div>
             }
             {event?.description && 
-            <div className='flex flex-row pt-3'>
-                <CalendarRange className='ml-5'  size={32}/>
-                <p className="font-sans px-5 overflow-hidden text-ellipsis">{stripHtml(event.description)}</p>
+            <div className='flex flex-row pt-3 justify-center'>
+                <p className="font-sans px-5">Click for More Info</p>
             </div>
             }
         </div>
