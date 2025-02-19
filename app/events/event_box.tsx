@@ -1,71 +1,67 @@
 import Image from 'next/image'
 import { Clock, MapPin, CalendarRange } from 'lucide-react'
-
-
 interface Events {
-  "created" : Date;
-  "updated" : Date;
-  "description" : string | null;
-  "location" : string | null;
-  "summary" : string | null;
-  "start": {
-    "date": Date | null;
-    "dateTime": string | null;
-    "timeZone": string | null
-  };
-  "end": {
-    "date": Date | null;
-    "dateTime": string | null;
-    "timeZone": string | null
-  };
-  "attachments": [
-    {
-      "fileUrl": string | null;
-      "title": string | null;
-      "mimeType": string | null;
-      "iconLink": string | null;
-      "fileId": string | null
-    }
-  ];
-}
+    "created" : Date;
+    "updated" : Date;
+    "description" : string | null;
+    "location" : string | null;
+    "summary" : string | null;
+    "start": {
+        "date": Date | null;
+        "dateTime": string | null;
+        "timeZone": string | null
+    };
+    "end": {
+        "date": Date | null;
+        "dateTime": string | null;
+        "timeZone": string | null
+    };
+    "attachments": [
+      {
+        "fileUrl": string | null;
+        "title": string | null;
+        "mimeType": string | null;
+        "iconLink": string | null;
+        "fileId": string | null
+      }
+    ];
 
+}
 interface event {
-  event : Events
+    event : Events
 }
-
 // Helper function to format date and time and return as an array
 const formatDateTime = (dateTime: string | null) => {
-  if (!dateTime) return ["", ""]
+    if (!dateTime) return ["", ""]
 
-  const date = new Date(dateTime)
+    const date = new Date(dateTime)
 
-  // Format date like "Sept 21, 2024"
-  const formattedDate = date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
+    // Format date like "Sept 21, 2024"
+    const formattedDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
 
-  // Format time like "5:00 AM"
-  const hours = date.getHours()
-  const minutes = date.getMinutes()
-  const period = hours >= 12 ? 'PM' : 'AM'
-  const formattedTime = `${(hours % 12 || 12)}:${minutes.toString().padStart(2, '0')} ${period}`
+    // Format time like "5:00 AM"
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const period = hours >= 12 ? 'PM' : 'AM'
+    const formattedTime = `${(hours % 12 || 12)}:${minutes.toString().padStart(2, '0')} ${period}`
 
-  return [formattedDate, formattedTime]
-}
-
-const formatDate = (date: Date | null): string => {
-  if (!date) {
-    return ""; // Return an empty string for null or invalid Date objects
+    return [formattedDate, formattedTime]
   }
-  const date2 = new Date(date)
-  // Format date like "Sept 21, 2024"
-  return date2.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+const formatDate = (date: Date | null): string => {
+    if (!date) {
+      return ""; // Return an empty string for null or invalid Date objects
+    }
+    const date2 = new Date(date)
+    // Format date like "Sept 21, 2024"
+    return date2.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+});
 }
 
 const getTextSize = (text: string) => {
@@ -164,5 +160,4 @@ const EventBox : React.FC<event> = ({event}) => {
         </div>
     )
 }
-
 export default EventBox;
