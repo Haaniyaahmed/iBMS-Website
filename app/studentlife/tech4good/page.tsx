@@ -95,12 +95,15 @@ const Tech4GoodPage = () => {
 
       {/* Reach Out Button and Information Package Button */}
       <section id="reach-out" className="flex justify-center mt-12 mb-10 gap-4">
+      <a href="/contact">
         <button
           className="px-6 py-3 text-white text-lg font-semibold rounded hover:bg-red-700"
           style={{ backgroundColor: '#C22D2A' }}
         >
           Reach Out to Us
         </button>
+      </a>
+
 
         {/* Button for Information Package PDF */}
         <a
