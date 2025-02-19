@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Clock, MapPin, CalendarRange } from 'lucide-react'
+import { Clock, MapPin } from 'lucide-react'
 interface Events {
     "created" : Date;
     "updated" : Date;
