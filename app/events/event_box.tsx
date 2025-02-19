@@ -77,8 +77,17 @@ const getTextSize = (text: string) => {
 };
 
 const stripLocation = (location: string) => {
+    if (!location) return "";
+
+    const firstWord = location.split(" ")[0];
+
+    if (firstWord.length > 19) {
+        return firstWord.substring(0, 16) + "...";
+    }
+
     return location.length <= 26 ? location : location.substring(0, 23) + "...";
-}
+};
+
 const stripHtml = (html: string) => {
     // Remove HTML tags
     let plainText = html.replace(/<\/?[^>]+(>|$)/g, "");
