@@ -30,7 +30,7 @@ interface Events {
 }
 
 export default async function Page() {
-  const calendarId = process.env.CALENDAR_ID;  // Replace with your public calendar ID
+  const calendarId = process.env.CALENDAR_ID;  
   const apiKey = process.env.GOOGLE_API_KEY;
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
   const data = await fetch(url, { next: { revalidate: 60 } });

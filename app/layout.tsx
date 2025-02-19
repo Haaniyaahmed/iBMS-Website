@@ -3,8 +3,11 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'iBioMed Society',
+  title: 'iBiomed Society Official Website',
   description: 'Official Student Society of McMaster iBioMed Program',
+  icons: {
+    icon: '/ibiosocietylogo.png',
+  }
 }
 
 export default function RootLayout({

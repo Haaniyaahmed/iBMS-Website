@@ -20,27 +20,28 @@ const DialogCard = ({ member, closeDialog } : DialogCardProps) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image Section - Stays on Top for Mobile, Moves Left for Larger Screens */}
-        <div className="w-full h-[250px] flex justify-center md:w-[300px] md:h-[255px] lg:w-[450px] md:mt-10 md:mb-10 md:ml-11 md:mr-10">
+        <div className="md:w-[200px] lg:w-[300px] shrink-0 overflow-hidden">
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover rounded-lg md:w-[300px] md:h-[255px] lg:w-[450px]"
+            className="w-full h-full object-cover rounded-lg"
           />
         </div>
 
+
         {/* Content Section - Below Image for Mobile, Right Side for Larger Screens */}
-        <div className="mt-5 md:mt-10 flex flex-col text-center md:text-left md:ml-6 md:w-full md:mr-11">
-          {/* Name & Tags */}
+        <div className="mt-5 md:mt-10 flex flex-col justify-center text-center md:text-left md:ml-6 md:w-0 md:grow md:mr-11">
           <div>
-            <h2 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
+            {/* Name */}
+            <h2 className="text-2xl font-bold text-black md:text-4xl lg:text-5xl">
               {member.name.toUpperCase()}
             </h2>
-
-            <div className="flex flex-wrap justify-center md:justify-start space-x-2 mt-3">
-              <button className="px-3 py-1 text-sm md:text-base bg-purple-400 text-red-800 font-semibold rounded-full shadow-md">
+            {/* Tags */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-3"> {/* Use gap for consistent spacing */}
+              <button className="px-2 py-0.5 text-xs sm:px-3 sm:py-1 md:text-base bg-purple-400 text-red-800 font-semibold rounded-full shadow-md whitespace-nowrap">
                 {member.stream}
               </button>
-              <button className="px-3 py-1 text-sm md:text-base bg-green-400 text-red-800 font-semibold rounded-full shadow-md">
+              <button className="px-2 py-0.5 text-xs sm:px-3 sm:py-1 md:text-base bg-green-400 text-red-800 font-semibold rounded-full shadow-md whitespace-nowrap"> 
                 {member.position}
               </button>
             </div>
