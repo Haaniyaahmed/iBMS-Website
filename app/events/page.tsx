@@ -33,7 +33,7 @@ export default async function Page() {
   const calendarId = process.env.CALENDAR_ID;  
   const apiKey = process.env.GOOGLE_API_KEY;
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
-  const data = await fetch(url);
+  const data = await fetch(url, { next: { revalidate: 60 } });
   const calendar: Events[] = (await data.json()).items;  
   const sortedEvents = [...calendar].sort((a, b) => {
     // Convert dateTime or date into Date objects

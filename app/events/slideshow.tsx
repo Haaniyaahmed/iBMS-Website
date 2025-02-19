@@ -93,11 +93,11 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                     </div>
                     <DrawerContent className='bg-white'>
                         <DrawerHeader>
-                            <DrawerTitle>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
+                            <DrawerTitle className='text-black'>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
                             <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
                         </DrawerHeader>
                         <center className="max-h-96 overflow-y-auto">
-                            <p className="text-wrap" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
+                            <p className="text-black text-wrap" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
                         </center>
                         <DrawerFooter>
                             <DrawerClose asChild>
@@ -129,10 +129,10 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                         </div>
                         <DialogContent className="max-h-96 h-fit overflow-y-auto bg-white">
                             <DialogHeader>
-                                <DialogTitle>{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
+                                <DialogTitle className="text-black">{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
                                 <DialogDescription>{selectedItem ? selectedItem.location : "Location"}</DialogDescription>
                             </DialogHeader>
-                            <p className="overflow-y-auto" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
+                            <p className="text-black overflow-y-auto" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
                         </DialogContent>
                 </Dialog>
             )
