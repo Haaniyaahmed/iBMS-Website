@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import { Clock, MapPin } from 'lucide-react'
+import { Clock, MapPin, CircleHelp } from 'lucide-react'
+import { Button } from '../_components/button'
+
 interface Events {
     "created" : Date;
     "updated" : Date;
@@ -28,7 +30,9 @@ interface Events {
 
 }
 interface event {
-    event : Events
+    event : Events;
+    setSelectedItem : (event: Events) => void;
+    setOpen : (arg: boolean) => void;
 }
 // Helper function to format date and time and return as an array
 const formatDateTime = (dateTime: string | null) => {
@@ -99,9 +103,9 @@ const stripHtml = (html: string) => {
     return plainText.length <= 30 ? plainText : plainText.substring(0, 27) + "...";
   };
 */
-const EventBox : React.FC<event> = ({event}) => {
+const EventBox : React.FC<event> = ({event,setSelectedItem,setOpen}) => {
     return (
-        <div className='bg-white w-full h-80 sm:h-56 rounded-lg text-black'>
+        <div className='bg-white w-full h-80 sm:h-56 rounded-lg text-black flex flex-col'>
             {event?.attachments?.[0]?.fileUrl ? 
             <div className='w-full h-16 relative'>
                 <Image src="/default_event.png"
@@ -151,11 +155,11 @@ const EventBox : React.FC<event> = ({event}) => {
                 <p className="font-sans px-5">{stripLocation(event.location)}</p>
             </div>
             }
-            {event?.description && 
             <div className='flex flex-row pt-3 justify-center'>
-                <p className="font-sans px-5">Click for More Info</p>
+                <Button className='bg-mac-dark-red' onClick={() => {setSelectedItem(event); setOpen(true)}}>
+                    <CircleHelp /> Click for More Info
+                </Button>
             </div>
-            }
         </div>
     )
 }
