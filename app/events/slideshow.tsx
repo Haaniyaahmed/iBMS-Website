@@ -12,7 +12,6 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "../_components/dialog"  
 import {
     Drawer,
@@ -22,7 +21,6 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerTitle,
-    DrawerTrigger,
 } from "../_components/drawer"
 import { Button } from "../_components/button"
 import EventBox from './event_box'
@@ -83,11 +81,9 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                         <p className="font-sans text-white font-bold text-xl pt-12 ml-3 pb-3">📌NEWEST</p>
                         <CarouselContent key={1} className='rounded-lg -ml-7 w-full'>
                             {listOfEvents?.map((event,index) => (
-                                <DrawerTrigger asChild key={index}>
                                     <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3'>
                                         <EventBox event={event} setSelectedItem={setSelectedItem} setOpen={setOpen}/>
                                     </CarouselItem>
-                                </DrawerTrigger>
                         ))}
                         </CarouselContent>
                         </Carousel>
