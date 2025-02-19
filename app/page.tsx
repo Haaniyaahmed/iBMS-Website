@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar/>
-      <div className="container flex flex-col w-full h-screen bg-white">
+      <div className="container flex flex-col w-full min-h-screen bg-white">
         {/* TODO Header Image with Text */}
         <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY"/>
         <div className="bg-yellow-500 py-2 mb-6"/>

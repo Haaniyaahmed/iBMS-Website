@@ -15,11 +15,11 @@ export default function BlogLayout({
     children: React.ReactNode
   }) {
     return (
-        <div className='flex flex-col w-full h-screen bg-black' style={{
+        <div className='flex flex-col w-full min-h-screen bg-black' style={{
             backgroundImage: "url('/elipses.png')", 
           }}>
             <Navbar/>
-            {children}
+              {children}
             <Footer/>
         </div>
     );

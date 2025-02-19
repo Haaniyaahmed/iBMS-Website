@@ -13,11 +13,11 @@ export default function RootLayout({
 }) {
   return (
     // Do not render <html> or <body> here, let Next.js handle it
-    <div className='flex flex-col w-full h-screen bg-black overflow-y-auto' style={{
+    <div className='flex flex-col w-full min-h-screen bg-black overflow-y-auto' style={{
       backgroundImage: "url('/elipses.png')", 
     }}>
         <Navbar/>
-        {children}
+          {children}
         <Footer/>
     </div>
   )
