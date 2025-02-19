@@ -7,28 +7,28 @@ import Footer from "./_components/Footer";
 import Banner from "./_components/banner";
 
 interface Events {
-  "created": Date;
-  "updated": Date;
-  "description": string | null;
-  "location": string | null;
-  "summary": string | null;
-  "start": {
-    "date": Date | null;
-    "dateTime": string | null;
-    "timeZone": string | null;
+  created: Date;
+  updated: Date;
+  description: string | null;
+  location: string | null;
+  summary: string | null;
+  start: {
+    date: Date | null;
+    dateTime: string | null;
+    timeZone: string | null;
   };
-  "end": {
-    "date": Date | null;
-    "dateTime": string | null;
-    "timeZone": string | null;
+  end: {
+    date: Date | null;
+    dateTime: string | null;
+    timeZone: string | null;
   };
-  "attachments": [
+  attachments: [
     {
-      "fileUrl": string | null;
-      "title": string | null;
-      "mimeType": string | null;
-      "iconLink": string | null;
-      "fileId": string | null;
+      fileUrl: string | null;
+      title: string | null;
+      mimeType: string | null;
+      iconLink: string | null;
+      fileId: string | null;
     }
   ];
 }
@@ -39,13 +39,18 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchEvents = async () => {
+      console.log("Calendar ID:", process.env.CALENDAR_ID);
+      console.log("API Key:", process.env.GOOGLE_API_KEY);
+
       const calendarId = process.env.CALENDAR_ID;
       const apiKey = process.env.GOOGLE_API_KEY;
       const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
       const data = await fetch(url);
       const calendarData = await data.json();
-      const calendar: Events[] = calendarData.items;
-
+  
+      console.log("Calendar Data:", calendarData);  // Check the raw API response
+      const calendar: Events[] = calendarData.items || [];
+  
       const sortedEvents = [...calendar].sort((a, b) => {
         const getDate = (event: Events) => {
           if (event.start.dateTime) {
@@ -56,23 +61,24 @@ export default function HomePage() {
           }
           return new Date(0);
         };
-
+  
         const dateA = getDate(a);
         const dateB = getDate(b);
         const now = new Date();
-
+  
         const isAUpcoming = dateA > now;
         const isBUpcoming = dateB > now;
-
+  
         if (isAUpcoming && !isBUpcoming) return -1;
         if (!isAUpcoming && isBUpcoming) return 1;
-
+  
         return dateA.getTime() - dateB.getTime();
       });
-
+  
+      console.log("Sorted Events:", sortedEvents);  // Check the sorted events
       setEvents(sortedEvents);
     };
-
+  
     fetchEvents();
   }, []);
 
@@ -112,7 +118,7 @@ export default function HomePage() {
 
         {/* Tab Content */}
         <div className="w-[80%] mx-auto bg-gray-900 p-6 rounded-b-lg border-b-4 border-red-700">
-        {activeTab === "futureStudents" && (
+          {activeTab === "futureStudents" && (
             <div className="flex flex-col gap-4">
               <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
@@ -133,7 +139,7 @@ export default function HomePage() {
             </div>
           )}
 
-            {activeTab === "currentStudents" && (
+          {activeTab === "currentStudents" && (
             <div className="flex flex-col gap-4">
               <a href="https://example5.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
@@ -161,13 +167,23 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4">
             {events.length > 0 ? (
               events.slice(0, 4).map((event, index) => {
-                const eventDate = event.start.dateTime || event.start.date;
+                const eventDate = event.start.dateTime
+                  ? new Date(event.start.dateTime)
+                  : event.start.date
+                  ? new Date(event.start.date + "T00:00:00")
+                  : null;
                 const eventTitle = event.summary || "No Title";
+
                 return (
                   <div key={index} className="bg-gray-800 text-white p-4 rounded-lg">
                     <h3 className="text-lg font-bold">{eventTitle}</h3>
-                    <p>{eventDate ? new Date(eventDate).toLocaleString() : "No date available"}</p>
+                    <p>
+                      {eventDate && eventDate instanceof Date && !isNaN(eventDate.getTime())
+                        ? eventDate.toLocaleString()
+                        : "No date available"}
+                    </p>
                   </div>
+                  
                 );
               })
             ) : (
