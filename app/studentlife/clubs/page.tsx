@@ -5,6 +5,7 @@ export default function Page() {
   return (
     <div>
       <Banner imagePath='/clubs.png' title_top='CLUBS' title_bottom='AT MCMASTER' />
+      <div className="bg-yellow-500 w-full py-2 mb-6" />
 
       {/* Content container with 70% width */}
       <div className="w-[70%] mx-auto">

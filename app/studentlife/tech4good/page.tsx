@@ -8,6 +8,7 @@ const Tech4GoodPage = () => {
     <div>
       {/* Banner Section */}
       <Banner imagePath='/t4g.png' title_top='TECH 4' title_bottom='GOOD' />
+      <div className="bg-yellow-500 w-full py-2 mb-6" />
 
       {/* About Us Section */}
       <section id="about-us" className="mb-12 mt-16">

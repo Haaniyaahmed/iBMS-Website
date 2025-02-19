@@ -47,7 +47,8 @@ export default function Contact() {
     <div> 
       {/* Header Image with Text */}
       <Banner imagePath='/contact.png' title_top='CONTACT' title_bottom='US' />
-      <div className="bg-black py-12"> {/* Overall container with background and padding */}
+      <div className="bg-yellow-500 w-full py-2 mb-6" />
+      <div className="bg-black py-5"> {/* Overall container with background and padding */}
         <div className="container mx-auto px-4"> {/* Centered container with padding */}
           {/* Contact Form */}
           <div className="md:w-3/5 lg:w-3/5 mx-auto bg-gray-100 rounded-lg shadow-md p-8 mt-8 border border-black"> {/* Form container styling */}
