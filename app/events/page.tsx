@@ -90,6 +90,7 @@ export default async function Page() {
   return (
     <>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
+      <div className="bg-yellow-500 w-full py-2 mb-6" />
       <SlideShow listOfEvents={sortedEvents}/>
       <center className='mt-6 pb-10'>
         <div className='max-w-5xl w-full pl-3 sm:pl-9'>
