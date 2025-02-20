@@ -1,10 +1,8 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
 import Banner from "./_components/banner";
+import Table from "./table";
 
 interface Events {
   created: Date;
@@ -33,22 +31,18 @@ interface Events {
   ];
 }
 
-export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
-  const [events, setEvents] = useState<Events[]>([]);
+export default async function HomePage() {
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      console.log("Calendar ID:", process.env.CALENDAR_ID);
-      console.log("API Key:", process.env.GOOGLE_API_KEY);
+      //console.log("Calendar ID:", process.env.CALENDAR_ID);
+      //console.log("API Key:", process.env.GOOGLE_API_KEY);
 
       const calendarId = process.env.CALENDAR_ID;
       const apiKey = process.env.GOOGLE_API_KEY;
       const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
-      const data = await fetch(url);
+      const data = await fetch(url, { next: { revalidate: 60 } });
       const calendarData = await data.json();
   
-      console.log("Calendar Data:", calendarData);  // Check the raw API response
+      //console.log("Calendar Data:", calendarData);  // Check the raw API response
       const calendar: Events[] = calendarData.items || [];
   
       const sortedEvents = [...calendar].sort((a, b) => {
@@ -75,16 +69,9 @@ export default function HomePage() {
         return dateA.getTime() - dateB.getTime();
       });
   
-      console.log("Sorted Events:", sortedEvents);  // Check the sorted events
-      setEvents(sortedEvents);
-    };
-  
-    fetchEvents();
-  }, []);
+      //console.log("Sorted Events:", sortedEvents);  // Check the sorted events
 
-  const handleTabSwitch = (tab: "futureStudents" | "currentStudents") => {
-    setActiveTab(tab);
-  };
+  
 
   return (
     <>
@@ -94,79 +81,14 @@ export default function HomePage() {
         <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY" />
         <div className="bg-yellow-500 w-full py-2 mb-6" />
 
-        {/* Tabs */}
-        <div className="w-[80%] mx-auto">
-          <div className="flex justify-between w-full">
-            <button
-              onClick={() => handleTabSwitch("futureStudents")}
-              className={`flex-1 px-6 py-3 rounded-t-lg ${
-                activeTab === "futureStudents" ? "bg-red-700 text-white" : "bg-gray-200 text-black"
-              } transition-colors`}
-            >
-              <strong>FUTURE STUDENTS</strong>
-            </button>
-            <button
-              onClick={() => handleTabSwitch("currentStudents")}
-              className={`flex-1 px-6 py-3 rounded-t-lg ${
-                activeTab === "currentStudents" ? "bg-red-700 text-white" : "bg-gray-200 text-black"
-              } transition-colors`}
-            >
-              <strong>CURRENT STUDENTS</strong>
-            </button>
-          </div>
-        </div>
-
-        {/* Tab Content */}
-        <div className="w-[80%] mx-auto bg-gray-900 p-6 rounded-b-lg border-b-4 border-red-700">
-          {activeTab === "futureStudents" && (
-            <div className="flex flex-col gap-4">
-              <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">MENTORSHIP</span>
-              </a>
-              <a href="https://www.instagram.com/macengww/?hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">WELCOME WEEK</span>
-              </a>
-              <a href="https://www.eng.mcmaster.ca/ibiomed/ibehs-1/" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">RESOURCES</span>
-              </a>
-              <a href="https://drive.google.com/drive/folders/1EQS5YZPJVDgPgy31mmR_koLgC6cI8oHJ" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">COURSE SURVIVAL</span>
-              </a>
-            </div>
-          )}
-
-          {activeTab === "currentStudents" && (
-            <div className="flex flex-col gap-4">
-              <a href="https://docs.google.com/presentation/d/11X5DwOVzuKz3WGp-PNPN2YUzRwkxwWanCCJviIDlfGQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">STREAM SELECTION</span>
-              </a>
-              <a href="https://drive.google.com/drive/folders/1xwuMwblZ6xQvOgZKf1fQaIKyQSSwGnLB" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">RESEARCH</span>
-              </a>
-              <a href="https://www.instagram.com/macibiomed/p/CxbSaXGxEYD/?img_index=1" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">STUDY TIPS</span>
-              </a>
-              <a href="https://forms.gle/twivfnvbKHbbXBDE9" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
-                <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">ACADEMIC CONCERNS</span>
-              </a>
-            </div>
-          )}
-        </div>
+        <Table/>
 
         {/* Upcoming Events Section */}
         <div className="w-[80%] mx-auto mt-10">
           <h2 className="text-white text-2xl font-bold mb-4">Upcoming Events</h2>
           <div className="grid grid-cols-2 gap-4">
-            {events.length > 0 ? (
-              events.slice(0, 4).map((event, index) => {
+            {sortedEvents.length > 0 ? (
+              sortedEvents.slice(0, 4).map((event, index) => {
                 const eventDate = event.start.dateTime
                   ? new Date(event.start.dateTime)
                   : event.start.date
