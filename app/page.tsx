@@ -192,17 +192,20 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Social Media Section */}
-        <div className="w-[80%] mx-auto mt-10">
-          <h2 className="text-white text-2xl font-bold mb-4">Social Media</h2>
-          <div className="bg-gray-900 p-4 rounded-lg">
-            <div className="overflow-hidden whitespace-nowrap">
-              <a href="https://www.instagram.com/macibiomed/" target="_blank" rel="noopener noreferrer" className="inline-block mr-4">📷 Instagram Post 1</a>
-              <a href="https://www.instagram.com/macibiomed/" target="_blank" rel="noopener noreferrer" className="inline-block mr-4">📷 Instagram Post 2</a>
-              <a href="https://www.instagram.com/macibiomed/" target="_blank" rel="noopener noreferrer" className="inline-block">📷 Instagram Post 3</a>
-            </div>
-          </div>
-        </div>
+        <div className="w-[80%] mx-auto mt-10 text-center">
+  <h2 className="text-white text-2xl font-bold mb-4">Reach Us</h2>
+  <div className="flex justify-center space-x-8">
+    <a href="https://www.facebook.com/ibiomedsociety/" target="_blank" rel="noopener noreferrer">
+      <img src="socials/facebook.png" alt="Facebook" className="w-12 h-12" />
+    </a>
+    <a href="https://www.instagram.com/ibiomedsociety/?hl=en" target="_blank" rel="noopener noreferrer">
+      <img src="socials/ig.png" alt="Instagram" className="w-12 h-12" />
+    </a>
+    <a href="https://www.linkedin.com/company/ibiomed-society/" target="_blank" rel="noopener noreferrer">
+      <img src="socials/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
+    </a>
+  </div>
+</div>
 
         <div className="bg-black w-full py-4 mt-6" />
         <Footer />
