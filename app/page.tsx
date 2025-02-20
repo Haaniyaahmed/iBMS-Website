@@ -122,7 +122,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
               <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">MENTORSHIP - UNDER CONSTRUCTION!</span>
+                <span className="ml-4">MENTORSHIP</span>
               </a>
               <a href="https://www.instagram.com/macengww/?hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
