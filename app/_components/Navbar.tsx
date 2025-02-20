@@ -82,7 +82,7 @@ export default function Navbar() {
             {isStudentLifeOpen && (
               <div className="flex flex-col items-center space-y-2">
                 <Link href="/studentlife/clubs" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Clubs</Link>
-                <Link href="/studentlife/housing" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Housing</Link>
+                <Link href="/studentlife/tech4good" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Tech4Good</Link>
                 {/* <Link href="/studentlife/resources" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Resources</Link> */}
               </div>
             )}
