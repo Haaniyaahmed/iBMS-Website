@@ -94,30 +94,28 @@ const Tech4GoodPage = () => {
         </div>
       </section>
 
-      {/* Reach Out Button and Information Package Button */}
-      <section id="reach-out" className="flex justify-center mt-12 mb-10 gap-4">
-      <a href="/contact">
+          <section id="reach-out" className="flex flex-col items-center mt-12 mb-10 gap-4 px-4">
+      <a href="/contact" className="w-full max-w-xs">
         <button
-          className="px-6 py-3 text-white text-lg font-semibold rounded hover:bg-red-700"
+          className="w-full px-6 py-3 text-white text-lg font-semibold rounded-lg hover:bg-red-700"
           style={{ backgroundColor: '#C22D2A' }}
         >
           Reach Out to Us
         </button>
       </a>
 
-
-        {/* Button for Information Package PDF */}
-        <a
-          href="/tech4good/tech4good.pdf" 
-          target="_blank" 
-          className="px-6 py-3 text-white text-lg font-semibold rounded"
+      <a href="/tech4good/tech4good.pdf" target="_blank" className="w-full max-w-xs">
+        <button
+          className="w-full px-6 py-3 text-white text-lg font-semibold rounded-lg hover:opacity-80"
           style={{ backgroundColor: '#FFD700' }}
         >
           View Information Package
-        </a>
-      </section>
-    </div>
-  );
-};
+        </button>
+      </a>
+    </section>
+
+        </div>
+      );
+    };
 
 export default Tech4GoodPage;
