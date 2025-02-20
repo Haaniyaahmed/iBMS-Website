@@ -33,7 +33,7 @@ export default async function Page() {
   const calendarId = process.env.CALENDAR_ID;  
   const apiKey = process.env.GOOGLE_API_KEY;
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
-  const data = await fetch(url);
+  const data = await fetch(url, { next: { revalidate: 60 } });
   const calendar: Events[] = (await data.json()).items;  
   const sortedEvents = [...calendar].sort((a, b) => {
     // Convert dateTime or date into Date objects
@@ -90,6 +90,7 @@ export default async function Page() {
   return (
     <>
       <Banner imagePath='/upcoming_events.png' title_top='UPCOMING' title_bottom='EVENTS'/>
+      <div className="bg-yellow-500 w-full py-2 mb-6" />
       <SlideShow listOfEvents={sortedEvents}/>
       <center className='mt-6 pb-10'>
         <div className='max-w-5xl w-full pl-3 sm:pl-9'>

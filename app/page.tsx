@@ -1,210 +1,138 @@
-"use client";
-
-import React, { useState } from "react";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
 import Banner from "./_components/banner";
+import Table from "./table";
 
-export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<"futureStudents" | "currentStudents">("futureStudents");
-
-  const handleTabSwitch = (tab: "futureStudents" | "currentStudents") => {
-    setActiveTab(tab);
+interface Events {
+  created: Date;
+  updated: Date;
+  description: string | null;
+  location: string | null;
+  summary: string | null;
+  start: {
+    date: Date | null;
+    dateTime: string | null;
+    timeZone: string | null;
   };
+  end: {
+    date: Date | null;
+    dateTime: string | null;
+    timeZone: string | null;
+  };
+  attachments: [
+    {
+      fileUrl: string | null;
+      title: string | null;
+      mimeType: string | null;
+      iconLink: string | null;
+      fileId: string | null;
+    }
+  ];
+}
+
+export default async function HomePage() {
+
+      const calendarId = process.env.CALENDAR_ID;
+      const apiKey = process.env.GOOGLE_API_KEY;
+      const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
+      const data = await fetch(url, { next: { revalidate: 60 } });
+      const calendarData = await data.json();
+  
+      //console.log("Calendar Data:", calendarData);  // Check the raw API response
+      const calendar: Events[] = calendarData.items || [];
+  
+      const sortedEvents = [...calendar].sort((a, b) => {
+        const getDate = (event: Events) => {
+          if (event.start.dateTime) {
+            return new Date(event.start.dateTime);
+          }
+          if (event.start.date) {
+            return new Date(event.start.date + "T00:00:00");
+          }
+          return new Date(0);
+        };
+  
+        const dateA = getDate(a);
+        const dateB = getDate(b);
+        const now = new Date();
+  
+        const isAUpcoming = dateA > now;
+        const isBUpcoming = dateB > now;
+  
+        if (isAUpcoming && !isBUpcoming) return -1;
+        if (!isAUpcoming && isBUpcoming) return 1;
+  
+        return dateA.getTime() - dateB.getTime();
+      });
+  
+      //console.log("Sorted Events:", sortedEvents);  // Check the sorted events
+
+  
 
   return (
     <>
-      <Navbar/>
-      <div className="container flex flex-col w-full min-h-screen bg-white">
-        {/* TODO Header Image with Text */}
-        <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY"/>
-        <div className="bg-yellow-500 py-2 mb-6"/>
+      <Navbar />
+      <div className="flex flex-col w-full min-h-screen bg-black">
+        {/* Header Image with Text */}
+        <Banner imagePath="/studentlife.png" title_top="IBIOMED" title_bottom="SOCIETY" />
+        <div className="bg-yellow-500 w-full py-2 mb-6" />
 
-        {/* Tabs */}
-        <div className="tabs-container">
-          <div className="tabs">
-            <button
-              onClick={() => handleTabSwitch("futureStudents")}
-              className={`tab ${activeTab === "futureStudents" ? "active" : ""}`}
-            >
-              <strong>FUTURE STUDENTS</strong>
-            </button>
-            <button
-              onClick={() => handleTabSwitch("currentStudents")}
-              className={`tab ${activeTab === "currentStudents" ? "active" : ""}`}
-            >
-              <strong style={{ fontFamily: "'Poppins', sans-serif" }}>CURRENT STUDENTS</strong>
-            </button>
+        <Table/>
+
+        {/* Upcoming Events Section */}
+        <div className="w-[80%] mx-auto mt-10">
+          <h2 className="text-white text-2xl font-bold mb-4">Upcoming Events</h2>
+          <div className="grid grid-cols-2 gap-4">
+            {sortedEvents.length > 0 ? (
+              sortedEvents.slice(0, 4).map((event, index) => {
+                const eventDate = event.start.dateTime
+                  ? new Date(event.start.dateTime)
+                  : event.start.date
+                  ? new Date(event.start.date + "T00:00:00")
+                  : null;
+                const eventTitle = event.summary || "No Title";
+
+                return (
+                  <div key={index} className="bg-gray-800 text-white p-4 rounded-lg">
+                    <h3 className="text-lg font-bold">{eventTitle}</h3>
+                    <p>
+                      {eventDate
+                        ? new Intl.DateTimeFormat("en-US", {
+                            timeZone: event.start.timeZone || "America/Toronto",
+                            dateStyle: "full",
+                            timeStyle: "short",
+                          }).format(eventDate)
+                        : "No date available"}
+                    </p>
+
+                  </div>
+                  
+                );
+              })
+            ) : (
+              <div className="col-span-2 text-center text-white">No upcoming events.</div>
+            )}
           </div>
         </div>
 
-        {/* Tab Content */}
-        <div className="tab-content">
-          {activeTab === "futureStudents" && (
-            <div className="content-container">
-              <div className="rect-container">
-                <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>MENTORSHIP</span>
-                </a>
-                <a href="https://www.instagram.com/macengww/?hl=en" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>WELCOME WEEK SCHEDULE</span>
-                </a>
-                <a href="https://www.eng.mcmaster.ca/ibiomed/ibehs-1/" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>RESOURCES</span>
-                </a>
-                <a href="https://example4.com" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>UPPER YEAR ADVICE</span>
-                </a>
-              </div>
-            </div>
-          )}
-          {activeTab === "currentStudents" && (
-            <div className="content-container">
-              <div className="rect-container">
-                <a href="https://example5.com" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>STREAM SELECTION</span>
-                </a>
-                <a href="https://example6.com" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>CO-OPS & RESEARCH</span>
-                </a>
-                <a href="https://www.instagram.com/macibiomed/p/CxbSaXGxEYD/?img_index=1" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>STUDY TIPS</span>
-                </a>
-                <a href="https://forms.gle/twivfnvbKHbbXBDE9" target="_blank" rel="noopener noreferrer" className="rectangle">
-                  <div className="circle"></div>
-                  <span>ACADEMIC CONCERNS</span>
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="bg-white py-2"/>
-        <Footer/>
+        <div className="w-[80%] mx-auto mt-10 text-center">
+  <h2 className="text-white text-2xl font-bold mb-4">Reach Us!</h2>
+  <div className="flex justify-center space-x-8">
+    <a href="https://www.facebook.com/ibiomedsociety/" target="_blank" rel="noopener noreferrer">
+      <img src="socials/facebook.png" alt="Facebook" className="w-12 h-12" />
+    </a>
+    <a href="https://www.instagram.com/ibiomedsociety/?hl=en" target="_blank" rel="noopener noreferrer">
+      <img src="socials/ig.png" alt="Instagram" className="w-12 h-12" />
+    </a>
+    <a href="https://www.linkedin.com/company/ibiomed-society/" target="_blank" rel="noopener noreferrer">
+      <img src="socials/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
+    </a>
+  </div>
+</div>
 
-        <style jsx>{`
-          .container {
-            width: 100%;
-            margin: 0 auto;
-          }
-
-          .header {
-            width: 100%;
-            margin-bottom: 40px;
-            position: relative;
-          }
-
-          .header-text {
-            position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Align to center */
-            text-align: center;
-          }
-
-          .ibiomed {
-            display: block;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 3rem; /* Adjust as needed */
-            line-height: 1.2;
-          }
-
-          .society {
-            display: block;
-            color: #FFD920;
-            font-family: 'Inter', sans-serif;
-            font-size: 3rem; /* Adjust as needed */
-            line-height: 1.2;
-            font-weight: bold;
-          }
-
-          .tabs-container {
-            width: 85%; 
-            margin: 0 auto; /* Center the tabs */
-          }
-
-          .tabs {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-          }
-
-          .tab {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            background: #f1f1f1;
-            cursor: pointer;
-            color: black;
-            transition: background-color 0.3s;
-            border-radius: 10px 10px 0 0;
-          }
-
-          .tab.active {
-            background: #C22D2A;
-            color: white;
-          }
-
-          .tab:hover {
-            background: #ddd;
-          }
-
-          .content-container {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            background-color: #202020;
-            padding: 20px;
-            border-radius: 5px;
-            width: 85%;
-            margin: 0 auto;
-            border-bottom: 5px solid #C22D2A;
-          }
-
-          .rect-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            flex: 2;
-          }
-
-          .rectangle {
-            width: 100%;
-            height: 60px;
-            background: #C22D2A;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 10px;
-            font-weight: bold;
-            border: none;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-          }
-
-          .rectangle:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          }
-
-          .circle {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border: 3px solid #FFD700;
-            border-radius: 50%;
-          }
-        `}</style>
+        <div className="bg-black w-full py-4 mt-6" />
+        <Footer />
       </div>
     </>
   );

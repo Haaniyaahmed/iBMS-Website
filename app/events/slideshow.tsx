@@ -12,7 +12,6 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "../_components/dialog"  
 import {
     Drawer,
@@ -22,7 +21,6 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerTitle,
-    DrawerTrigger,
 } from "../_components/drawer"
 import { Button } from "../_components/button"
 import EventBox from './event_box'
@@ -71,6 +69,7 @@ const removeHtmlBlob = (html: string) => {
 const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
     const isMobile = useMediaQuery("(max-width: 640px)");
     const [selectedItem, setSelectedItem] = useState<Events | null>(null);
+    const [open, setOpen] = useState(false);
     return (
         <>
         {
@@ -82,22 +81,20 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                         <p className="font-sans text-white font-bold text-xl pt-12 ml-3 pb-3">📌NEWEST</p>
                         <CarouselContent key={1} className='rounded-lg -ml-7 w-full'>
                             {listOfEvents?.map((event,index) => (
-                                <DrawerTrigger asChild key={index}>
-                                    <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3' onClick={() => setSelectedItem(event)}>
-                                        <EventBox event={event}/>
+                                    <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-2/3 sm:basis-1/3'>
+                                        <EventBox event={event} setSelectedItem={setSelectedItem} setOpen={setOpen}/>
                                     </CarouselItem>
-                                </DrawerTrigger>
                         ))}
                         </CarouselContent>
                         </Carousel>
                     </div>
                     <DrawerContent className='bg-white'>
                         <DrawerHeader>
-                            <DrawerTitle>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
+                            <DrawerTitle className='text-black'>{selectedItem ? selectedItem.summary : "Event"}</DrawerTitle>
                             <DrawerDescription>{selectedItem ? selectedItem.location : "Location"}</DrawerDescription>
                         </DrawerHeader>
                         <center className="max-h-96 overflow-y-auto">
-                            <p className="text-wrap" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
+                            <p className="text-black text-wrap" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }}/>
                         </center>
                         <DrawerFooter>
                             <DrawerClose asChild>
@@ -109,18 +106,15 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
             )
             :
             (
-                <Dialog>
+                <Dialog open={open} onOpenChange={setOpen}>
                         <div className='flex flex-row justify-center'>
                             <Carousel opts={{align: "center"}} className='flex flex-col rounded-t-lg w-full lg:max-w-5xl'>
                             <p className="font-sans text-white font-bold text-xl pt-12 ml-10 pb-3">📌NEWEST</p>
                             <CarouselContent key={1} className='rounded-lg -ml-1 w-full'>
                                 {listOfEvents?.map((event,index) => (
-                                    <DialogTrigger asChild key={index}>
-                                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3 cursor-pointer' onClick={() => setSelectedItem(event)}>
-                                            <EventBox event={event}/>
+                                        <CarouselItem key={index} className='pl-10 flex flex-col flex-shrink-0 rounded-lg basis-1/3'>
+                                            <EventBox event={event} setSelectedItem={setSelectedItem} setOpen={setOpen}/>
                                         </CarouselItem>
-                                    </DialogTrigger>
-                                
                             ))}
                             </CarouselContent>
                             <CarouselPrevious className="bg-white"/>
@@ -129,10 +123,10 @@ const SlideShow: React.FC<SlideShowProps> = ({listOfEvents}) => {
                         </div>
                         <DialogContent className="max-h-96 h-fit overflow-y-auto bg-white">
                             <DialogHeader>
-                                <DialogTitle>{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
+                                <DialogTitle className="text-black">{selectedItem ? selectedItem.summary : "Event"}</DialogTitle>
                                 <DialogDescription>{selectedItem ? selectedItem.location : "Location"}</DialogDescription>
                             </DialogHeader>
-                            <p className="overflow-y-auto" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
+                            <p className="text-black overflow-y-auto" dangerouslySetInnerHTML={{ __html: filterXSS(removeHtmlBlob(selectedItem?.description || "")) }} ></p>
                         </DialogContent>
                 </Dialog>
             )
