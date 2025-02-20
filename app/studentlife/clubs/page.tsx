@@ -65,13 +65,41 @@ export default function Page() {
             clubs: [
               {
                 img: "/wie.png",
-                name: "WIE",
+                name: "Women in Engineering Society",
                 desc: "A community supporting woman-identifying engineering, B.Tech, iBioMed, and Computer Science students.",
                 links: [
                   { href: "https://www.mcmasterwie.com/", img: "/socials/website_logo.png" },
                   { href: "https://www.instagram.com/mcmasterwie/", img: "/socials/instagram_logo.jpg" }
                 ]
+              },
+              {
+                img: "/nsbe.png",
+                name: "National Society of Black Engineers",
+                desc: "A dynamic community of aspiring engineers dedicated to advancing success of underrepresented groups.",
+                links: [
+                  { href: "https://nsbemcmaster.ca/", img: "/socials/website_logo.png" },
+                  { href: "https://www.instagram.com/nsbemac/", img: "/socials/instagram_logo.jpg" }
+                ]
+              },
+              {
+                img: "/ewd.png",
+                name: "McMaster Engineers With Disabilities",
+                desc: "We aim to provide support for engineering students with self-identified disabilities.",
+                links: [
+                  //{ href: "https://nsbemcmaster.ca/", img: "/socials/website_logo.png" },
+                  { href: "https://www.instagram.com/mcmasterewd/", img: "/socials/instagram_logo.jpg" }
+                ]
+              },
+              {
+                img: "/aises.jpg",
+                name: "American Indigenous Science and Engineering Society",
+                desc: "The voice for Indigenous Peoples in STEM at McMaster University.",
+                links: [
+                  { href: "https://aises.org/chapter/mcmaster-university/", img: "/socials/website_logo.png" },
+                  { href: "https://www.instagram.com/mcmasteraises/", img: "/socials/instagram_logo.jpg" }
+                ]
               }
+              
             ]
           }
         ].map((section) => (
@@ -92,7 +120,7 @@ export default function Page() {
                       {club.links.map((link, linkIndex) => (
                         <a key={linkIndex} href={link.href} target="_blank" rel="noopener noreferrer">
                           <img src={link.img} alt="Social Link" className="w-6 h-6" />
-                        </a>
+                        </a> 
                       ))}
                     </div>
                   </div>

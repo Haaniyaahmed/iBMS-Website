@@ -122,7 +122,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
               <a href="https://example1.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">MENTORSHIP</span>
+                <span className="ml-4">MENTORSHIP - UNDER CONSTRUCTION!</span>
               </a>
               <a href="https://www.instagram.com/macengww/?hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
@@ -132,22 +132,22 @@ export default function HomePage() {
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
                 <span className="ml-4">RESOURCES</span>
               </a>
-              <a href="https://example4.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
+              <a href="https://drive.google.com/drive/folders/1EQS5YZPJVDgPgy31mmR_koLgC6cI8oHJ" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">UPPER YEAR ADVICE</span>
+                <span className="ml-4">COURSE SURVIVAL</span>
               </a>
             </div>
           )}
 
           {activeTab === "currentStudents" && (
             <div className="flex flex-col gap-4">
-              <a href="https://example5.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
+              <a href="https://docs.google.com/presentation/d/11X5DwOVzuKz3WGp-PNPN2YUzRwkxwWanCCJviIDlfGQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
                 <span className="ml-4">STREAM SELECTION</span>
               </a>
-              <a href="https://example6.com" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
+              <a href="https://drive.google.com/drive/folders/1xwuMwblZ6xQvOgZKf1fQaIKyQSSwGnLB" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
-                <span className="ml-4">CO-OPS & RESEARCH</span>
+                <span className="ml-4">RESEARCH</span>
               </a>
               <a href="https://www.instagram.com/macibiomed/p/CxbSaXGxEYD/?img_index=1" target="_blank" rel="noopener noreferrer" className="flex items-center bg-red-700 text-white p-4 rounded-xl hover:scale-105 transition">
                 <div className="w-10 h-10 bg-white border-2 border-yellow-400 rounded-full"></div>
@@ -193,7 +193,7 @@ export default function HomePage() {
         </div>
 
         <div className="w-[80%] mx-auto mt-10 text-center">
-  <h2 className="text-white text-2xl font-bold mb-4">Reach Us</h2>
+  <h2 className="text-white text-2xl font-bold mb-4">Reach Us!</h2>
   <div className="flex justify-center space-x-8">
     <a href="https://www.facebook.com/ibiomedsociety/" target="_blank" rel="noopener noreferrer">
       <img src="socials/facebook.png" alt="Facebook" className="w-12 h-12" />
