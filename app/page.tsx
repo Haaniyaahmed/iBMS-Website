@@ -33,9 +33,6 @@ interface Events {
 
 export default async function HomePage() {
 
-      //console.log("Calendar ID:", process.env.CALENDAR_ID);
-      //console.log("API Key:", process.env.GOOGLE_API_KEY);
-
       const calendarId = process.env.CALENDAR_ID;
       const apiKey = process.env.GOOGLE_API_KEY;
       const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
@@ -100,10 +97,15 @@ export default async function HomePage() {
                   <div key={index} className="bg-gray-800 text-white p-4 rounded-lg">
                     <h3 className="text-lg font-bold">{eventTitle}</h3>
                     <p>
-                      {eventDate && eventDate instanceof Date && !isNaN(eventDate.getTime())
-                        ? eventDate.toLocaleString()
+                      {eventDate
+                        ? new Intl.DateTimeFormat("en-US", {
+                            timeZone: event.start.timeZone || "America/Toronto",
+                            dateStyle: "full",
+                            timeStyle: "short",
+                          }).format(eventDate)
                         : "No date available"}
                     </p>
+
                   </div>
                   
                 );
