@@ -60,7 +60,7 @@ const Tech4GoodPage = () => {
               {/* Team Member 2 */}
               <div className="text-center">
                 <img
-                  src="/path-to-image/jane-smith.jpg"
+                  src="/tech4good/ayushpatel.png"
                   alt="Ayush Patel"
                   className="w-60 h-60 full object-cover mx-auto"
                 />

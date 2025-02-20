@@ -49,7 +49,8 @@ export default function Navbar() {
               <div className="absolute left-0 mt-2 flex flex-col bg-mac-dark-red text-white shadow-lg border border-white z-50">
                 <Link href="/studentlife/tech4good" className="p-2 hover:bg-neutral-700">Tech4Good</Link>
                 <Link href="/studentlife/clubs" className="p-2 hover:bg-neutral-700">Clubs</Link>
-                {/* <Link href="/studentlife/resources" className="p-2 hover:bg-neutral-700">Resources</Link> */}
+                <Link href="/studentlife/resources" className="p-2 hover:bg-neutral-700">Resources</Link>
+                <Link href="/studentlife/mentorship" className="p-2 hover:bg-neutral-700">Mentorship</Link>
               </div>
             )}
           </div>
@@ -83,7 +84,8 @@ export default function Navbar() {
               <div className="flex flex-col items-center space-y-2">
                 <Link href="/studentlife/clubs" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Clubs</Link>
                 <Link href="/studentlife/tech4good" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Tech4Good</Link>
-                {/* <Link href="/studentlife/resources" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Resources</Link> */}
+                <Link href="/studentlife/resources" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Resources</Link>
+                <Link href="/studentlife/mentorship" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Mentorship</Link>
               </div>
             )}
 

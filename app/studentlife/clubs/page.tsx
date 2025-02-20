@@ -16,7 +16,7 @@ export default function Page() {
             title: "Technical Teams",
             clubs: [
               {
-                img: "/chemecar.jpg",
+                img: "/clubs/chemecar.jpg",
                 name: "Chem-E-Car",
                 desc: "On McMaster Chem-E-Car, students design, build, and test a chemical-fueled car to move a specific unknown distance for competition.",
                 links: [
@@ -25,7 +25,7 @@ export default function Page() {
                 ]
               },
               {
-                img: "/mist.png",
+                img: "/clubs/mist.png",
                 name: "McMaster Interdisciplinary Satellite Team",
                 desc: "A team designing, fabricating, and planning to launch a CubeSat to study the effects of ionizing radiation.",
                 links: [
@@ -40,7 +40,7 @@ export default function Page() {
             title: "Technical Clubs",
             clubs: [
               {
-                img: "/medt.png",
+                img: "/clubs/medt.png",
                 name: "MED-T",
                 desc: "Bringing together engineering and health sciences students to develop cutting-edge medical devices.",
                 links: [
@@ -49,7 +49,7 @@ export default function Page() {
                 ]
               },
               {
-                img: "/healthhatch.png",
+                img: "/clubs/healthhatch.png",
                 name: "HealthHATCH",
                 desc: "Providing students with exposure to technical and transferable skills in biomedical engineering.",
                 links: [
@@ -64,7 +64,7 @@ export default function Page() {
             title: "Other Clubs",
             clubs: [
               {
-                img: "/wie.png",
+                img: "/clubs/wie.png",
                 name: "Women in Engineering Society",
                 desc: "A community supporting woman-identifying engineering, B.Tech, iBioMed, and Computer Science students.",
                 links: [
@@ -73,7 +73,7 @@ export default function Page() {
                 ]
               },
               {
-                img: "/nsbe.png",
+                img: "/clubs/nsbe.png",
                 name: "National Society of Black Engineers",
                 desc: "A dynamic community of aspiring engineers dedicated to advancing success of underrepresented groups.",
                 links: [
@@ -82,7 +82,7 @@ export default function Page() {
                 ]
               },
               {
-                img: "/ewd.png",
+                img: "/clubs/ewd.png",
                 name: "McMaster Engineers With Disabilities",
                 desc: "We aim to provide support for engineering students with self-identified disabilities.",
                 links: [
@@ -91,7 +91,7 @@ export default function Page() {
                 ]
               },
               {
-                img: "/aises.jpg",
+                img: "/clubs/aises.jpg",
                 name: "American Indigenous Science and Engineering Society",
                 desc: "The voice for Indigenous Peoples in STEM at McMaster University.",
                 links: [
