@@ -34,6 +34,7 @@ export default function Navbar() {
         {/* Desktop & Tablet Navbar */}
         <div className="hidden md:flex text-sm md:text-base lg:text-lg min-w-max justify-center gap-8 lg:gap-14 p-4">
           <Link href="/" className="nav-link hover:text-neutral-300">Home</Link>
+          <Link href="/about" className="nav-link hover:text-neutral-300">About</Link>
           <Link href="/team" className="nav-link hover:text-neutral-300">Team</Link>
 
           {/* Student Life Dropdown (Desktop) */}
@@ -71,6 +72,7 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="flex flex-col items-center space-y-4 p-4 text-sm bg-mac-dark-red">
             <Link href="/" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/about" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>About</Link>
             <Link href="/team" className="nav-link hover:text-neutral-300" onClick={() => setIsMenuOpen(false)}>Team</Link>
             
             {/* Student Life Dropdown (Mobile) */}

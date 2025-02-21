@@ -122,7 +122,7 @@ export default async function HomePage() {
     <a href="https://www.facebook.com/ibiomedsociety/" target="_blank" rel="noopener noreferrer">
       <img src="socials/facebook.png" alt="Facebook" className="w-12 h-12" />
     </a>
-    <a href="https://www.instagram.com/ibiomedsociety/?hl=en" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.instagram.com/ibiomedsociety/" target="_blank" rel="noopener noreferrer">
       <img src="socials/ig.png" alt="Instagram" className="w-12 h-12" />
     </a>
     <a href="https://www.linkedin.com/company/ibiomed-society/" target="_blank" rel="noopener noreferrer">
