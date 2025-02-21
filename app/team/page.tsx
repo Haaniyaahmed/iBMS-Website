@@ -16,7 +16,7 @@ export default function TeamPage() {
       ? teamData
       : teamData.filter((member) => member.label === activeCategory);
 
-  const categories = ["View All", "Executives", "Vice Presidents", "Stream Representatives"];
+  const categories = ["View All", "Executives", "Vice Presidents", "Representatives"];
 
   return (
     <div
