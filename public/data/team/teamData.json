@@ -2,191 +2,229 @@
 [
 	{
 		"id": 1,
-		"name": "John Doe",
-		"position": "President",
-		"image": "/data/team/images/john_doe.jpg",
-		"stream": "HESE",
+		"name": "Dhanya Koshti",
+		"position": "Co-President",
+		"image": "/data/team/images/dhanya_koshti.png",
+		"stream": "Electrical + iBio",
 		"label": "Executives",
-		"desc": "John is the president of the team and oversees all operations.",
+		"desc": "I help our team succeed by providing strategic advice, connect students with essential resources, maintain organizational structure, and ensure we achieve meaningful outcomes throughout the school year!",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": ""
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://www.linkedin.com/in/dhanya-koshti/"
 			}
 		]
 	},
 	{
 		"id": 2,
-		"name": "John Doe",
+		"name": "Wanqi Chen",
 		"position": "Co-President",
-		"image": "/data/team/images/john_doe.jpg",
-		"stream": "Software",
+		"image": "/data/team/images/wanqi_chen.png",
+		"stream": "HESE",
 		"label": "Executives",
-		"desc": "John is the president of the team and oversees all operations.",
+		"desc": "Hi! I am Anna, and I am the HESE co-president of the iBioMed Society this year. I represent the interests of the iBioMed society, and in particular, the Health, Engineering Science and Entrepreneurship (HESE) stream. My primary goal is to strengthen the connection between current students and alumni by developing a robust alumni network. I also hope to increase awareness of the society's presence within the iBioMed community. In this leadership role, I collaborate with Dhanya, the BME co-president to oversee and contribute to a wide range of society activities, including academics, finance, and communications. I facilitate monthly meetings with administration, host weekly society meetings, and work collaboratively to plan and execute events that engage and support our members. Through leadership, commitment, and effective communication, I ensure that the society operates efficiently and continues to thrive as a valuable resource for the iBioMed community.",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/annachen901/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "www.linkedin.com/in/wanqi-anna-chen"
 			}
 		]
 	},
 	{
 		"id": 3,
-		"name": "Jamie Doe",
-		"position": "Co-President",
-		"image": "/data/team/images/john_doe.jpg",
-		"stream": "Software",
-		"label": "Executives",
-		"desc": "Jamie is the president of the team and oversees all operations.",
+		"name": "Zara Khan",
+		"position": "VP Finance",
+		"image": "/data/team/images/zara_khan.png",
+		"stream": "Electrical + iBio",
+		"label": "Vice Presidents",
+		"desc": "Finance. Trust Fund. 5' 4\". Brown Eyes. ",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": ""
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://www.linkedin.com/in/zarazkhan/"
 			}
 		]
 	},
 	{
 		"id": 4,
-		"name": "Jane Doe",
-		"position": "VP Finance",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Mechatronics",
+		"name": "Scarlett Wang",
+		"position": "VP Academic",
+		"image": "/data/team/images/scarlett_wang.jpeg",
+		"stream": "Materials + iBio",
 		"label": "Vice Presidents",
-		"desc": "Jane is the vice president of the team and oversees all operations.",
+		"desc": "The VP Academic is responsible for managing and overseeing the iBioBuds mentorship program, the APEx tutoring program, and the iBMS academic council. The Academics team, consisting of a dedicated group of mentors, tutors, and students, is committed to facilitating the academic and professional success of iBioMed students while providing feedback to improve future iterations of the program.",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": ""
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "www.linkedin.com/in/scarlett-wang-a6b684260"
 			}
 		]
 	},
 	{
 		"id": 5,
-		"name": "Jane Doe",
+		"name": "Navdeep Khehra",
 		"position": "VP Marketing",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Materials",
+		"image": "/data/team/images/navdeep_khehra.jpg",
+		"stream": "Electrical + iBio",
 		"label": "Vice Presidents",
-		"desc": "Jane is the vice president of the team and oversees all operations.",
+		"desc": "As VP Marketing for the iBioMed Society, I lead a subteam to manage the Society's social media accounts, design engaging content, and communicate events and opportunities to iBios!",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/_navdeepkhehra/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://linkedin.com/in/navdeepkhehra"
 			}
 		]
 	},
 	{
 		"id": 6,
-		"name": "Jane Doe",
-		"position": "VP Operations",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Software",
+		"name": "Harshi Sarvo",
+		"position": "VP Events",
+		"image": "/data/team/images/harshi_sarvo.jpg",
+		"stream": "Materials + iBio",
 		"label": "Vice Presidents",
-		"desc": "Jane is the vice president of the team and oversees all operations.",
+		"desc": "As VP Events for iBioMed Society, I organize monthly events to ensure fellow iBios can unwind and form meaningful connections with their peers. I'm committed to organizing diverse activities that provide a fun break from academic stress while fostering a strong sense of community among students :)",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/harshi.sarvo/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://www.linkedin.com/in/harshi-sarvo/"
 			}
 		]
 	},
 	{
 		"id": 7,
-		"name": "Jane Doe",
-		"position": "Chem Representative",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Chem",
-		"label": "Stream Representatives",
-		"desc": "Jane is the representative of chemical and biomedical engineering",
+		"name": "Fariha Asna",
+		"position": "VP Mentorship",
+		"image": "/data/team/images/fariha_asna.jpg",
+		"stream": "HESE",
+		"label": "Vice Presidents",
+		"desc": "As VP Mentorship for the iBioMed Society, I oversee programs that foster connections and community within the iBioMed program. The iBioBuds program pairs upper-year mentors with lower-year mentees to provide guidance and support throughout their journey as an iBioMed student. We are also planning a new initiative to connect current students with iBioMed alumni, creating opportunities for mentorship and networking. My goal is to strengthen the iBioMed community by building meaningful relationships and offering resources that support personal and professional growth.",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/far.a288/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://www.linkedin.com/in/farihaasna/"
 			}
 		]
 	},
 	{
 		"id": 8,
-		"name": "Jane Doe",
-		"position": "Software Representative",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Software",
-		"label": "Stream Representatives",
-		"desc": "Jane is the representative of software and biomedical engineering",
+		"name": "Mohamed Maatallah",
+		"position": "Third Year Representative",
+		"image": "/data/team/images/mohamed_maatallah.png",
+		"stream": "HESE",
+		"label": "Representatives",
+		"desc": "As the third year rep, I act as a liaison between my class and the iBioMed Society. This means planning both inter-faculty and class-specific events, and ensuring that student’s questions, comments, and concerns are brought up to the appropriate individuals on the iBioMed Society. ",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/mohamed.maatallah/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://www.linkedin.com/in/mohamed-maatallah-731823247/"
 			}
 		]
 	},
 	{
 		"id": 9,
-		"name": "Jane Doe",
-		"position": "Materials Representative",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Materials",
-		"label": "Stream Representatives",
-		"desc": "Jane is the representative of materials and biomedical engineering",
+		"name": "Ameen Neami",
+		"position": "MES Representative",
+		"image": "/data/team/images/ameen_neami.jpg",
+		"stream": "Mechatronics + iBio",
+		"label": "Representatives",
+		"desc": "I bridge the gap between the McMaster Engineering Society and the iBioMed Society!",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/ameen_nmi/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "www.linkedin.com/in/ameenneami"
 			}
 		]
 	},
 	{
 		"id": 10,
-		"name": "Jane Doe",
-		"position": "Mechanical Representative",
-		"image": "/data/team/images/jane_doe.jpg",
-		"stream": "Mechanical",
-		"label": "Stream Representatives",
-		"desc": "Jane is the representative of mechanical and biomedical engineering",
+		"name": "Koby Tick",
+		"position": "Second Year Representative",
+		"image": "/data/team/images/koby_tick.png",
+		"stream": "Eng Phys + iBio",
+		"label": "Representatives",
+		"desc": "relaying information between the ibio society and current second year iBiomed students",
 		"socials":[
 			{
 				"platform": "instagram",
-				"url": "https://www.instagram.com"
+				"url": "https://www.instagram.com/ktick12/"
 			},
 			{
 				"platform": "linkedin",
-				"url": "https://www.linkedin.com"
+				"url": "https://www.linkedin.com/in/koby-tick-1b732629b/"
+			}
+		]
+	},
+  {
+		"id": 11,
+		"name": "Tanusha Panchalinga",
+		"position": "First Year Representative",
+		"image": "/data/team/images/tanusha_panchalinga.jpg",
+		"stream": "iBiomed Level 1",
+		"label": "Representatives",
+		"desc": "As the First Year iBioMed Student Representative, I acted as a liaison between first-year students and the iBioMed Society, communicating student concerns and promoting engagement through events and initiatives. I advocated for the needs of first-year students and fostering a supportive community.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com/tanupchlga"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com/in/tanusha-panchalinga-289976282/"
+			}
+		]
+	},
+  {
+		"id": 12,
+		"name": "Agnes Kung",
+		"position": "MES First Year Representative",
+		"image": "/data/team/images/agnes_kung.png",
+		"stream": "iBiomed Level 1",
+		"label": "Representatives",
+		"desc": "As the MES first-year iBioMed Rep, I serve as a liaison between first-year ibiomed students and the broader engineering community. I'm responsible for gathering feedback, addressing concerns, and ensuring effective communication of student needs to the MES First year council.",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com/agneskungg/"
+			},
+			{
+				"platform": "linkedin",
+				"url": "www.linkedin.com/in/agnes-kung-mcmaster"
 			}
 		]
 	}
