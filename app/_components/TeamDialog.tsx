@@ -36,22 +36,24 @@ const DialogCard = ({ member, closeDialog }: DialogCardProps) => {
                 {member.position}
               </button>
             </div>
-            <div className="flex justify-center md:justify-start space-x-4 mt-4"> {/* Socials */}
+            <div className="flex justify-center md:justify-start space-x-4 mt-4">
               {member.socials.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={`/socials/${social.platform}_logo.jpg`}
-                    alt={`${social.platform} logo`}
-                    className="w-6 h-6 md:w-8 md:h-8 object-contain hover:opacity-75 transition duration-200"
-                  />
-                </a>
+                social.url !== "" ? ( 
+                  <a
+                    key={index} 
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={`/socials/${social.platform}_logo.jpg`}
+                      alt={`${social.platform} logo`}
+                      className="w-6 h-6 md:w-8 md:h-8 object-contain hover:opacity-75 transition duration-200"
+                    />
+                  </a>
+                ) : null 
               ))}
-            </div>
+          </div>
 
             <div className="mt-4 flex flex-col flex-grow overflow-y-auto max-h-48 md:h-full"> {/* Scrollable description */}
               <p className="text-gray-700 text-sm mt-2 whitespace-pre-wrap md:text-base">
