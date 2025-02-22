@@ -1,12 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+// Load environment variables from .env file
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+// Determine the base URL based on the environment
+const env = process.env.TEST_ENV || 'local';
+const baseUrl = {
+    local: process.env.LOCAL_URL || 'http://localhost:3001',
+    staging: process.env.STAGING_URL || 'https://staging.ibiomedsociety.ca',
+    production: process.env.PRODUCTION_URL || 'https://ibiomedsociety.ca',
+}[env];
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -26,7 +31,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+    baseURL: baseUrl, // Set the base URL dynamically based on the environment
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',

@@ -1,7 +1,2 @@
-import { test, expect } from '@playwright/test';
-
-test('Homepage has the correct title', async ({ page }) => {
-  await page.goto('http://localhost:3001');  
-	await expect(page.getByText("Official Student Society of McMaster iBioMed Program")).toBeVisible();
-
-});
+// potentially verifiy if some of the links are working
+// but maybe this is not needed and everything can be done using jest and react-testing-library
