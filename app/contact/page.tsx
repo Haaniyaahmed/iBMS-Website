@@ -21,20 +21,53 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Domain validation using MailboxLayer API
+  const validateEmailDomain = async (email: string) => {
+    const apiKey = process.env.NEXT_PUBLIC_MAILBOX_LAYER_API_KEY; 
+
+    try {
+      const response = await fetch(
+        `http://apilayer.net/api/check?access_key=${apiKey}&email=${email}`
+      );
+      const data = await response.json();
+
+      // check if smtp_check or mx_found is true
+      // smtp_check indicates whether the email address is deliverable
+      if (data.smtp_check) {
+        return true;
+      }
+      // mx_found is true indicates that email domain exists and email address is likely valid
+      if (data.mx_found) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Error validating domain:', error);
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('Sending...');
 
+    // Validate domain
+    const isDomainValid = await validateEmailDomain(formData.email);
+    if (!isDomainValid) {
+      setStatus('Invalid domain or email does not exist.');
+      return;
+    }
+
     emailjs
       .send(
-        'service_xhtyjap',
-        'template_3irqx95',
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         formData,
-        'tBuOjKD9G5N8bWwOp'
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
-          setStatus('Message sent successfully!')
+          setStatus('Message sent successfully!');
         },
         (error) => {
           setStatus('Failed to send message.');
