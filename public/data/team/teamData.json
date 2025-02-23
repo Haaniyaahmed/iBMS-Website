@@ -135,6 +135,25 @@
 	},
 	{
 		"id": 8,
+		"name": "Haaniya Ahmed",
+		"position": "VP External",
+		"image": "/data/team/images/haaniya_ahmed.jpg",
+		"stream": "Mechatronics + iBio",
+		"label": "Vice Presidents",
+		"desc": "As VP External, I organize events with organizations outside of McMaster for two purposes. One, to get you aware of the biomedical engineering industry, and two, to get you involved in our community!",
+		"socials":[
+			{
+				"platform": "instagram",
+				"url": "https://www.instagram.com/haaniya_ahmed_/"
+			},
+			{
+				"platform": "linkedin",
+				"url": "https://www.linkedin.com/in/haaniya-ahmed-917927217"
+			}
+		]
+	},
+	{
+		"id": 9,
 		"name": "Mohamed Maatallah",
 		"position": "Third Year Representative",
 		"image": "/data/team/images/mohamed_maatallah.png",
@@ -153,7 +172,7 @@
 		]
 	},
 	{
-		"id": 9,
+		"id": 10,
 		"name": "Ameen Neami",
 		"position": "MES Representative",
 		"image": "/data/team/images/ameen_neami.jpg",
@@ -172,7 +191,7 @@
 		]
 	},
 	{
-		"id": 10,
+		"id": 11,
 		"name": "Koby Tick",
 		"position": "Second Year Representative",
 		"image": "/data/team/images/koby_tick.png",
@@ -191,7 +210,7 @@
 		]
 	},
   {
-		"id": 11,
+		"id": 12,
 		"name": "Tanusha Panchalinga",
 		"position": "First Year Representative",
 		"image": "/data/team/images/tanusha_panchalinga.jpg",
@@ -210,7 +229,7 @@
 		]
 	},
   {
-		"id": 12,
+		"id": 13,
 		"name": "Agnes Kung",
 		"position": "MES First Year Representative",
 		"image": "/data/team/images/agnes_kung.png",
