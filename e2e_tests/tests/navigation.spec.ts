@@ -10,7 +10,7 @@ import { MentorshipPage } from '../pages/mentorship';
 import { ResourcesPage } from '../pages/resources';
 import { Tech4GoodPage } from '../pages/tech4good';
 
-test.describe('Navigation Tests', () => {
+test.describe('navigate to all pages using nav bar and footer links', () => {
     let homePage: HomePage;
     let aboutPage: AboutPage;
     let teamPage: TeamPage;
