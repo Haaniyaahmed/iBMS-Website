@@ -1,6 +1,10 @@
 import { Page, Locator, expect } from '@playwright/test';
 import { Navigation } from './navigation';
 
+/**
+ * Represents the Contact Page in the application.
+ * Provides methods to interact with and test the contact form.
+ */
 export class ContactPage extends Navigation {
     readonly page: Page;
     readonly heading: Locator;
