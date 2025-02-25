@@ -27,7 +27,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        `http://apilayer.net/api/check?access_key=${apiKey}&email=${email}`
+        `https://apilayer.net/api/check?access_key=${apiKey}&email=${email}`
       );
       const data = await response.json();
 
